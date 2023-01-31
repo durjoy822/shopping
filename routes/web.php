@@ -18,3 +18,6 @@ use App\Http\Controllers\HomeController;
 //    return view('home');
 //});
 Route::get('/',[HomeController::class,'home'])->name('home');
+
+
+
