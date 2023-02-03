@@ -142,7 +142,7 @@
                         <img class="user-profile rounded-circle"
                             src="{{ asset('admin/assets/images/user/3.png') }}" alt="">
                         <div class="user-name-hide media-body">
-                            <span>Emay Walter</span>
+                            <span>{{Auth::guard('admin')->user()->name}}</span>
                             <p class="mb-0 font-roboto">Admin<i class="middle fa fa-angle-down"></i></p>
                         </div>
                     </div>
