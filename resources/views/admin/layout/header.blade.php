@@ -172,10 +172,6 @@
                             </a>
                         </li>
                         <li>
-{{--                            <a  href="{{route('admin.logout')}}" data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="javascript:void(0)">--}}
-{{--                                <i data-feather="log-out"></i>--}}
-{{--                                <span>Log out</span>--}}
-{{--                            </a>--}}
                             <a  href="{{route('admin.logout')}}" >
                                 <i data-feather="log-out"></i>
                                 <span>Log out</span>
