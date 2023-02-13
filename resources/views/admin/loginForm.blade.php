@@ -29,7 +29,7 @@
                             <span class="spin"></span>
                         </div>
 
-                        <a href="forgot-password.html" class="pass-forgot">Forgot your password?</a>
+                        <a href="{{route('login.forget.password')}}" class="pass-forgot">Forgot your password?</a>
 
                         <div class="button login">
                             <button onclick="location.href = 'index.html';">

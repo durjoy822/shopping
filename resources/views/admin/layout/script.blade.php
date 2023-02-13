@@ -38,3 +38,6 @@
 
     <!-- Theme js -->
     <script src="{{asset('admin/assets/js/script.js')}}"></script>
+{{--textarea editor --}}
+    <script src="//js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+    <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>

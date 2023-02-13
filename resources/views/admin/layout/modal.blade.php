@@ -14,3 +14,9 @@
         </div>
     </div>
 </div>
+
+<script>
+    @if(Session::has('success'))
+        toastr.success("{{Session('success')}}");
+        @endif
+</script>

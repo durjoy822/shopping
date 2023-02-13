@@ -20,23 +20,19 @@
                             <span class="spin"></span>
                         </div>
                         @error('name')
-                        <span class="alert alert-danger text-danger">{{ $message }}</span>
-                        @enderror
-                        <div class="input">
+                        <span class="spin1 text-danger mt-1" style="">{{$message}}</span>                         @enderror
+                        <div class="input my-0">
                             <label for="emailname">Email Address</label>
                             <input type="text" name="email" value="{{old('email')}}" id="emailname">
-                            <div class="spin"></div>
                             @error('email')
-                            <span class="alert alert-danger text-danger">{{ $message }}</span>
-                            @enderror
+                            <span class="spin1 text-danger " style="margin-top: 9px">{{$message}}</span>                             @enderror
                         </div>
 
                         <div class="input">
                             <label for="pass">Password</label>
                             <input type="password" name="password" value="{{old('password')}}" id="pass">
-                            <span class="spin"></span>
                             @error('password')
-                            <p class="spin1 text-danger py-4" style="">{{$message}}</p>                            @enderror
+                            <span class="spin1 text-danger mt-2 " style="">{{$message}}</span>                            @enderror
                         </div>
 
                         <div class="input">
@@ -44,8 +40,7 @@
                             <input type="password" value="{{old('confirm_pass')}}" name="confirm_pass" id="compass">
                             <span class="spin"></span>
                             @error('confirm_pass')
-                            <p class="spin1 text-danger py-4" style="">{{$message}}</p>
-{{--                            <span class="alert alert-danger text-danger">{{$message}}</span>--}}
+                            <span class="spin1 text-danger mt-2" style="">{{$message}}</span>
                             @enderror
                         </div>
 

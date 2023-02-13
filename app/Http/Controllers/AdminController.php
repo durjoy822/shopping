@@ -12,8 +12,11 @@ class AdminController extends Controller
     public function registerForm(){
         return view('admin.register');
     }
-public function loginForm(){
+    public function loginForm(){
         return view('admin.loginForm');
+    }
+    public function forgetPassword(){
+        return view('admin.forgetPassword');
     }
 
 

@@ -29,51 +29,6 @@
                                         <!-- Home -->
                                         <li class="nav-item dropdown dropdown-mega">
                                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Home</a>
-                                            <div class="dropdown-menu home-menu">
-                                                <div class="row g-4">
-                                                    <div class="col-xl-2 mega-box">
-                                                        <a class="home-box" href="index.html">
-                                                            <img class="img-fluid" src="{{asset('frontendAsset')}}/assets/images/demo-img/demo1.jpg" alt="home1">
-                                                            <span>Fashion Demo</span>
-                                                        </a>
-                                                    </div>
-
-                                                    <div class="col-xl-2 mega-box">
-                                                        <a class="home-box" href="index-2.html">
-                                                            <img class="img-fluid" src="{{asset('frontendAsset')}}/assets/images/demo-img/demo2.jpg" alt="home2">
-                                                            <span>Bag Demo</span>
-                                                        </a>
-                                                    </div>
-
-                                                    <div class="col-xl-2 mega-box">
-                                                        <a class="home-box" href="index-3.html">
-                                                            <img class="img-fluid" src="{{asset('frontendAsset')}}/assets/images/demo-img/demo3.jpg" alt="home3">
-                                                            <span>Grocery Demo</span>
-                                                        </a>
-                                                    </div>
-
-                                                    <div class="col-xl-2 mega-box">
-                                                        <a class="home-box" href="index-4.html">
-                                                            <img class="img-fluid" src="{{asset('frontendAsset')}}/assets/images/demo-img/demo4.jpg" alt="home4">
-                                                            <span>Furniture Demo</span>
-                                                        </a>
-                                                    </div>
-
-                                                    <div class="col-xl-2 mega-box">
-                                                        <a class="home-box" href="index-5.html">
-                                                            <img class="img-fluid" src="{{asset('frontendAsset')}}/assets/images/demo-img/demo5.jpg" alt="home5">
-                                                            <span>Watch Demo</span>
-                                                        </a>
-                                                    </div>
-
-                                                    <div class="col-xl-2 mega-box">
-                                                        <a class="home-box" href="index-6.html">
-                                                            <img class="img-fluid" src="{{asset('frontendAsset')}}/assets/images/demo-img/demo6.jpg" alt="home6">
-                                                            <span>Shoes Demo</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </li>
 
                                         <!-- Shop -->

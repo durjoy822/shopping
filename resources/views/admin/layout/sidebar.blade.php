@@ -34,7 +34,7 @@
                     </li>
 
                     <li class="sidebar-list">
-                        <a class="sidebar-link sidebar-title link-nav" href="index.html">
+                        <a class="sidebar-link sidebar-title link-nav" href="{{route('admin.dashboard')}}">
                             <i data-feather="home"></i>
                             <span>Dashboard</span>
                         </a>
@@ -62,6 +62,35 @@
                         </div>
                     </li>
 
+                    <li class="sidebar-list">
+                        <a class="sidebar-link sidebar-title" href="javascript:void(0)">
+                            <i data-feather="archive"></i>
+                            <span>Category</span>
+                        </a>
+                        <ul class="sidebar-submenu">
+                            <li>
+                                <a href="{{route('admin.category.create')}}">Category Add</a>
+                            </li>
+                            <li>
+                                <a href="{{route('admin.category.index')}}">Category Detals</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-list">
+                        <a class="sidebar-link sidebar-title" href="javascript:void(0)">
+                            <i data-feather="archive"></i>
+                            <span>Product</span>
+                        </a>
+                        <ul class="sidebar-submenu">
+                            <li>
+                                <a href="{{route('admin.product.create')}}">Product Add</a>
+                            </li>
+                            <li>
+                                <a href="{{route('admin.product.index')}}">Product List</a>
+                            </li>
+
+                        </ul>
+                    </li>
                     <li class="sidebar-list">
                         <a class="sidebar-link sidebar-title" href="javascript:void(0)">
                             <i data-feather="archive"></i>
@@ -112,22 +141,6 @@
 
                             <li>
                                 <a href="taxes.html">Taxes</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="sidebar-list">
-                        <a class="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
-                            <i data-feather="box"></i>
-                            <span>Product</span>
-                        </a>
-                        <ul class="sidebar-submenu">
-                            <li>
-                                <a href="products.html">Prodcts</a>
-                            </li>
-
-                            <li>
-                                <a href="add-new-product.html">Add New Products</a>
                             </li>
                         </ul>
                     </li>
