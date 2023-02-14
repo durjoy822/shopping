@@ -136,15 +136,7 @@
                 </div>
             </footer>
         </div>
-        <!-- footer En -->
-        </div>
-        <!-- Container-fluid End -->
-        </div>
-        <!-- Page Body End -->
-        </div>
 
-        </div>
-        <!-- page-wrapper End -->
 
     </body>
 @endsection

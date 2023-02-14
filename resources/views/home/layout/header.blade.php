@@ -28,24 +28,24 @@
                                     <ul class="navbar-nav">
                                         <!-- Home -->
                                         <li class="nav-item dropdown dropdown-mega">
-                                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Home</a>
+                                            <a class="nav-link dropdown-toggle" href="{{route('home')}}">Home</a>
                                         </li>
 
                                         <!-- Shop -->
                                         <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Shop</a>
-                                            <div class="dropdown-menu">
-                                                <div class="dropdown-column">
-                                                    <a class="dropdown-item" href="shop-categories.html">Shop Categories</a>
-                                                    <a class="dropdown-item" href="shop-filter.html">Shop Filter</a>
-                                                    <a class="dropdown-item" href="shop-left-sidebar.html">Shop Left Sidebar</a>
-                                                    <a class="dropdown-item" href="shop-list.html">Shop List</a>
-                                                    <a class="dropdown-item" href="shop-masanory.html">Shop Masonry</a>
-                                                    <a class="dropdown-item" href="shop-no-sidebar.html">Shop No Sidebar</a>
-                                                    <a class="dropdown-item" href="shop-right-sidebar.html">Shop Right Sidebar</a>
-                                                    <a class="dropdown-item" href="shop-top-filter.html">Shop Top Filter</a>
-                                                </div>
-                                            </div>
+                                            <a class="nav-link dropdown-toggle" href="{{route('shop')}}" >Shop</a>
+{{--                                            <div class="dropdown-menu">--}}
+{{--                                                <div class="dropdown-column">--}}
+{{--                                                    <a class="dropdown-item" href="shop-categories.html">Shop Categories</a>--}}
+{{--                                                    <a class="dropdown-item" href="shop-filter.html">Shop Filter</a>--}}
+{{--                                                    <a class="dropdown-item" href="shop-left-sidebar.html">Shop Left Sidebar</a>--}}
+{{--                                                    <a class="dropdown-item" href="shop-list.html">Shop List</a>--}}
+{{--                                                    <a class="dropdown-item" href="shop-masanory.html">Shop Masonry</a>--}}
+{{--                                                    <a class="dropdown-item" href="shop-no-sidebar.html">Shop No Sidebar</a>--}}
+{{--                                                    <a class="dropdown-item" href="shop-right-sidebar.html">Shop Right Sidebar</a>--}}
+{{--                                                    <a class="dropdown-item" href="shop-top-filter.html">Shop Top Filter</a>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
                                         </li>
 
                                         <!-- Product -->
@@ -377,7 +377,7 @@
                                         </div>
 
                                         <div class="btn-group block-group">
-                                            <a href="cart.html" class="btn-solid">View Cart</a>
+                                            <a href="{{route('card')}}" class="btn-solid">View Cart</a>
                                             <a href="payment.html" class="btn-outline">Checkout</a>
                                         </div>
                                     </div>

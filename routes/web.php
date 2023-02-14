@@ -23,6 +23,12 @@ use App\Http\Controllers\ProductController;
 //    return view('home');
 //});
 Route::get('/',[HomeController::class,'home'])->name('home');
+Route::get('/shop',[HomeController::class, 'shop'])->name('shop');
+Route::get('/compare',[HomeController::class, 'compare'])->name('compare');
+Route::get('/card',[HomeController::class, 'card'])->name('card');
+Route::get('/product_details/{id}',[HomeController::class, 'ProductDetails'])->name('all.details');
+Route::get('/product',[HomeController::class, 'product'])->name('product');
+
 
 
 Route::group(['prefix' => 'admin'], function () {
@@ -50,6 +56,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->name('admin.product.edit');
         Route::post('/product/update/{id}', [ProductController::class, 'update'])->name('admin.product.update');
         Route::post('/product/delete', [ProductController::class, 'delete'])->name('admin.product.delete');
+
 
     });
 });

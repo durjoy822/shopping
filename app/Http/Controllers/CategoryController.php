@@ -35,13 +35,10 @@ class CategoryController extends Controller
             $category = new Category();
             $category->name = $request->name;
             $category->parent_id = $request->parent_id;
-
-            if ($request->hasFile('logo')) {
-                $logo = $request->file('logo');
-                $filename = time() . '.' . $logo->getClientOriginalExtension();
-                $path = $logo->storeAs('public/logos', $filename);
-                $category->logo = $path;
+            if ($request->logo){
+                $category->logo = $this->saveFile($request);
             }
+        }
             $category->save();
             if ($category->id){
                 Session::flash('success','store successfully');
@@ -51,21 +48,28 @@ class CategoryController extends Controller
                 Session::flash('warning','store faild');
                 return redirect()->route('admin.category.index');
             }
-
-
         }
 
-    }
+        public function saveFile($request){
+            $file = $request->file('logo');
+            $fileName = rand().'.'.$file->getClientOriginalExtension();
+            $dir = 'adminAsset/category/img/';
+            $imgUrl = $dir.$fileName;
+            $file->move($dir, $fileName);
+            return $imgUrl;
+        }
+
     public function edit($id=null)
     {
         $category = Category::findOrFail($id);
         $categories = Category::where('parent_id',null)->get();
         return view('admin.category.edit',compact('id','category','categories'));
     }
+
+
     public function update(Request $request, $id=null)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|unique:categories',
         ]);
         if ($validator->fails()) {
             return redirect()->back()
@@ -75,20 +79,39 @@ class CategoryController extends Controller
             $category = Category::findOrFail($id);
             $category->name = $request->name;
             $category->parent_id = $request->parent_id;
-
-            if ($request->hasFile('logo')) {
-                $logo = $request->file('logo');
-                $filename = time() . '.' . $logo->getClientOriginalExtension();
-                $path = $logo->storeAs('public/logos', $filename);
-                $category->logo = $path;
+            if ($request->file('logo')){
+                if ($request->logo !=null){
+                    unlink($request->logo);
+                }
+                $category->logo = $this->saveFile($request);
             }
             $category->save();
-            return redirect()->route('admin.category.index');
+            if ($category->id){
+                Session::flash('success','Updated successfully');
+                return redirect(route('admin.category.index'));
+
+            }else{
+                Session::flash('warning','Updated faild');
+                return redirect()->route('admin.category.edit');
+            }
+
         }
     }
     public function delete($id=null)
     {
-        Category::findOrFail($id)->delete();
-        return redirect()->route('admin.category.index');
+           $category=Category::findOrFail($id);
+           if ($category->logo !=null){
+               unlink($category->logo);
+           }
+           $category->delete();
+        if ($category->id){
+            Session::flash('success','Delete successfully');
+            return redirect(route('admin.category.index'));
+
+        }else{
+            Session::flash('warning','Delete faild');
+            return back();
+        }
+
     }
 }

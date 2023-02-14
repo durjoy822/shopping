@@ -68,9 +68,8 @@
                                                     <label class="col-sm-2 col-form-label form-label-title">Category select</label>
                                                     <div class="col-sm-10">
                                                         <select class="js-example-basic-single w-100"  name="category" >
-                                                            <option disabled="" selected>Category Menu</option>
+                                                            <option disabled="" >Category Menu</option>
                                                             @foreach($category as $item)
-{{--                                                                <option value="{{$item->id}}" {{old('category')==$item->id ? 'selected':''}} >{{$item->name}}</option>--}}
                                                                 <option value="{{$item->id}}"
                                                                     {{ old('category') == $item->id ? 'selected' : '' }}>{{$item->name}}</option>
                                                             @endforeach

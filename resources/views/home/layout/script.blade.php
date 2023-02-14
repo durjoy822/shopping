@@ -26,4 +26,4 @@
 <script src="{{asset('frontendAsset')}}/assets/js/script.js"></script>
 
 <!-- Theme Settings Js -->
-<!-- <script src="{{asset('frontendAsset')}}/assets/js/theme-setting.js"></script> -->
+{{-- <script src="{{asset('frontendAsset')}}/assets/js/theme-setting.js"></script>--}}

@@ -147,7 +147,7 @@
                                                             </label>
                                                         </div>
                                                     </div>
-                                                    <div class="my-2">
+                                                    <div class="my-2" style="padding-left: 12vw" >
                                                         <button type="submit" class="btn btn-primary py-2 px-5 text-uppercase btn-set-task w-sm-100">Save</button>
                                                     </div>
                                                 </div>
