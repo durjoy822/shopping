@@ -65,11 +65,27 @@
                                                 </div>
 
                                                 <div class="mb-4 row align-items-center">
-                                                    <label class="col-sm-2 col-form-label form-label-title">Category select</label>
+                                                    <label class="col-sm-2 col-form-label form-label-title">Main Category</label>
                                                     <div class="col-sm-10">
                                                         <select class="js-example-basic-single w-100"  name="category" >
                                                             <option disabled="" >Category Menu</option>
                                                             @foreach($category as $item)
+                                                                <option value="{{$item->id}}"
+                                                                    {{ old('category') == $item->id ? 'selected' : '' }}>{{$item->name}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                        @error('category')
+                                                        <div class="alert alert-danger">{{ $message }}</div>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-4 row align-items-center">
+                                                    <label class="col-sm-2 col-form-label form-label-title">Sub Category select</label>
+                                                    <div class="col-sm-10">
+                                                        <select class="js-example-basic-single w-100"  name="category" >
+                                                            <option disabled="" >Category Menu</option>
+                                                            @foreach($subcat as $item)
                                                                 <option value="{{$item->id}}"
                                                                     {{ old('category') == $item->id ? 'selected' : '' }}>{{$item->name}}</option>
                                                             @endforeach

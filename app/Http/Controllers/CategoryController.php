@@ -80,7 +80,7 @@ class CategoryController extends Controller
             $category->name = $request->name;
             $category->parent_id = $request->parent_id;
             if ($request->file('logo')){
-                if ($request->logo !=null){
+                if ($category->logo !=null){
                     unlink($request->logo);
                 }
                 $category->logo = $this->saveFile($request);

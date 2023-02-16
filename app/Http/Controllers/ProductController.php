@@ -76,9 +76,10 @@ class ProductController extends Controller
     }
     public function edit($id)
     {
-        $category=Category::get();
+        $category=Category::where('parent_id',null)->get();
+        $subcat = Category::whereNotNull('parent_id')->get();
         $product = Product::findOrFail($id);
-        return view('admin.product.edit', compact( 'product','category'));
+        return view('admin.product.edit', compact( 'product','category','subcat'));
     }
     public function update(Request $request, $id = null)
     {
