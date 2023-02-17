@@ -280,8 +280,8 @@
                         <div class="dropdown user-dropdown">
                             <a href="javascript:void(0)"><i data-feather="user"></i></a>
                             <ul class="onhover-show-div">
-                                <li><a href="login.html">Login</a></li>
-                                <li><a href="register.html">Register</a></li>
+                                <li><a href="{{route('user.login')}}">Login</a></li>
+                                <li><a href="{{route('user.register')}}">Register</a></li>
                             </ul>
                         </div>
                     </li>

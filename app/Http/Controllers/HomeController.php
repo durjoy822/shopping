@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,6 +14,8 @@ class HomeController extends Controller
     public function shop(){
         return view('home.shop',[
             'products'=>Product::all(),
+            'category'=>Category::where('parent_id',null)->get(),
+            'subCat'=>Category::whereNotNull('parent_id')->get(),
         ]);
     }
     public function ProductDetails($id){
@@ -29,5 +32,11 @@ class HomeController extends Controller
     }
     public function card(){
         return view('home.card');
+    }
+    public function userLogin(){
+        return view('home.user.userlogin');
+    }
+    public function userRegister(){
+        return view('home.user.user_reg');
     }
 }

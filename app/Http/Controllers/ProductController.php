@@ -21,7 +21,8 @@ class ProductController extends Controller
     public function create()
     {
         $cateories=Category::where('parent_id')->get();
-        return view('admin.product.add',compact('cateories'));
+        $subcats = Category::whereNotNull('parent_id')->get();
+        return view('admin.product.add',compact('cateories','subcats'));
     }
     public function store(Request $request)
     {
@@ -145,6 +146,10 @@ class ProductController extends Controller
             }
         $product->delete();
         return redirect()->route('admin.product.index');
+    }
+    public function findSubcat($id = null)
+    {
+        echo json_encode(Category::where('parentId')->get());
     }
 }
 

@@ -28,6 +28,8 @@ Route::get('/compare',[HomeController::class, 'compare'])->name('compare');
 Route::get('/card',[HomeController::class, 'card'])->name('card');
 Route::get('/product_details/{id}',[HomeController::class, 'ProductDetails'])->name('all.details');
 Route::get('/product',[HomeController::class, 'product'])->name('product');
+Route::get('/userlogin',[HomeController::class, 'userLogin'])->name('user.login');
+Route::get('/user_reg',[HomeController::class, 'userRegister'])->name('user.register');
 
 
 
@@ -56,6 +58,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->name('admin.product.edit');
         Route::post('/product/update/{id}', [ProductController::class, 'update'])->name('admin.product.update');
         Route::post('/product/delete', [ProductController::class, 'delete'])->name('admin.product.delete');
+
+        Route::get('/subcat/{id}', [ProductController::class, 'findSubcat']);
 
 
     });

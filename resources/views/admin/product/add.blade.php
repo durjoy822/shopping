@@ -65,13 +65,28 @@
                                                 </div>
 
                                                 <div class="mb-4 row align-items-center">
-                                                    <label class="col-sm-2 col-form-label form-label-title">Category select</label>
+                                                    <label class="col-sm-2 col-form-label form-label-title">Main Category select</label>
                                                     <div class="col-sm-10">
-                                                        <select class="js-example-basic-single w-100"  name="category" >
-                                                            <option disabled="" selected>Category Menu</option>
+                                                        <select class="js-example-basic-single w-100" id="mainCat" name="category" >
+                                                            <option disabled="" selected>Main category Menu</option>
                                                             @foreach($cateories as $cat)
                                                             <option value="{{$cat->id}}">{{$cat->name}}</option>
                                                             @endforeach
+                                                        </select>
+                                                        @error('category')
+                                                        <div class="alert alert-danger">{{ $message }}</div>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                                <div class="mb-4 row align-items-center">
+                                                    <label class="col-sm-2 col-form-label form-label-title">Sub Category select</label>
+                                                    <div class="col-sm-10">
+                                                        <select class="js-example-basic-single w-100" id="subCat" name="subCategory" >
+{{--                                                            <option disabled="" selected>Sub Category Menu</option>--}}
+                                                            <option disabled selected value="">Select sub Category</option>
+{{--                                                            @foreach($subcats as $subcat)--}}
+{{--                                                            <option value="{{$subcat->id}}">{{$subcat->name}}</option>--}}
+{{--                                                            @endforeach--}}
                                                         </select>
                                                         @error('category')
                                                         <div class="alert alert-danger">{{ $message }}</div>

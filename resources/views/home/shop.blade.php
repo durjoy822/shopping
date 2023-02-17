@@ -199,46 +199,63 @@
                                             <h4 class="heading">Categories <span class="bg-theme-blue"></span></h4>
                                         </div>
                                         <ul class="catagories-side">
-                                            <li>
-                                                <a href="shop-left-sidebar.html">
-                                                    <span>
+                                            @foreach($category as $cat)
+{{--                                            <li>--}}
+{{--                                                <a href="shop-left-sidebar.html">--}}
+{{--                                                    <span>--}}
+{{--                                                        <i data-feather="arrow-right"></i>--}}
+{{--                                                        {{$cat->name}}--}}
+{{--                                                    </span>--}}
+{{--                                                    <span class="notification">32</span>--}}
+{{--                                                </a>--}}
+{{--                                            </li>--}}
+
+                                                <div class="dropdown"  class="catagories-side">
+                                                    <span class=""  data-bs-toggle="dropdown" aria-expanded="false">
                                                         <i data-feather="arrow-right"></i>
-                                                        Fashion
+                                                        {{$cat->name}}
+                                                    </span>
+                                                    <ul class="dropdown-menu">
+                                                        @foreach($subCat as $subCats)
+                                                        <li><span class="dropdown" value="{{$subCats->id}}" >{{$subCats->name}}</span></li>
+                                                        @endforeach
+                                                    </ul>
                                                     </span>
                                                     <span class="notification">32</span>
-                                                </a>
-                                            </li>
+                                                    </a>
+                                                </div>
 
-                                            <li>
-                                                <a href="shop-left-sidebar.html">
-                                                    <span>
-                                                        <i data-feather="arrow-right"></i>
-                                                        Trends
-                                                    </span>
-                                                    <span class="notification">32</span>
-                                                </a>
-                                            </li>
+                                            @endforeach
+{{--                                            <li>--}}
+{{--                                                <a href="shop-left-sidebar.html">--}}
+{{--                                                    <span>--}}
+{{--                                                        <i data-feather="arrow-right"></i>--}}
+{{--                                                        Trends--}}
+{{--                                                    </span>--}}
+{{--                                                    <span class="notification">32</span>--}}
+{{--                                                </a>--}}
+{{--                                            </li>--}}
 
-                                            <li>
-                                                <a href="shop-left-sidebar.html">
-                                                    <span>
-                                                        <i data-feather="arrow-right"></i>
-                                                        Designer
-                                                    </span>
-                                                    <span class="notification">5</span>
-                                                </a>
-                                            </li>
+{{--                                            <li>--}}
+{{--                                                <a href="shop-left-sidebar.html">--}}
+{{--                                                    <span>--}}
+{{--                                                        <i data-feather="arrow-right"></i>--}}
+{{--                                                        Designer--}}
+{{--                                                    </span>--}}
+{{--                                                    <span class="notification">5</span>--}}
+{{--                                                </a>--}}
+{{--                                            </li>--}}
 
-                                            <li>
-                                                <a href="shop-left-sidebar.html">
-                                                    <span>
-                                                        <i data-feather="arrow-right"></i>
-                                                        Swimwear
-                                                    </span>
-                                                    <span class="notification">15</span>
-                                                </a>
-                                            </li>
-                                            <li>
+{{--                                            <li>--}}
+{{--                                                <a href="shop-left-sidebar.html">--}}
+{{--                                                    <span>--}}
+{{--                                                        <i data-feather="arrow-right"></i>--}}
+{{--                                                        Swimwear--}}
+{{--                                                    </span>--}}
+{{--                                                    <span class="notification">15</span>--}}
+{{--                                                </a>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
                                                 <a href="shop-left-sidebar.html">
                                                     <span>
                                                         <i data-feather="arrow-right"></i>
