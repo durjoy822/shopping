@@ -604,9 +604,7 @@
                                         </div>
                                         <div class="option">
                                             <h5>Product Description</h5>
-                                            <p class="content-color">100% Cotton Indigo shirt with western yoke. Apt for
-                                                casual outings, this shirt will keep you comfortable and stylish all day
-                                                long.</p>
+                                            <p class="content-color">{{$product->details}}</p>
                                         </div>
                                         <div class="option">
                                             <h5>Your Brand Color:</h5>
