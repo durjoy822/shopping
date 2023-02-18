@@ -59,7 +59,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/product/update/{id}', [ProductController::class, 'update'])->name('admin.product.update');
         Route::post('/product/delete', [ProductController::class, 'delete'])->name('admin.product.delete');
 
-        Route::get('/subcat/{id}', [ProductController::class, 'findSubcat']);
+        Route::get('/product/subcategory/{id}', [ProductController::class, 'findSubcat']);
+        Route::get('/product/edit/subcategory/{id}', [ProductController::class, 'findSubcat']);
 
 
     });
