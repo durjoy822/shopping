@@ -25,10 +25,13 @@
                         <h5>LOGIN <span class="bg-theme-blue"></span></h5>
                         <p class="font-md content-color">How do i get access order,wishlist and recomendation ?</p>
 
-                        <form action="index.html" class="custom-form form-pill">
+                        <form action="{{route('user.login')}}" method="post" class="custom-form form-pill">@csrf
                             <div class="input-box">
                                 <label for="email">Email</label>
                                 <input class="form-control" type="email" required="" name="email" id="email">
+                                @if ($errors->has('email'))
+                                    <span class="error text-danger">{{ $errors->first('email') }}</span>
+                                @endif
                             </div>
 
                             <div class="input-box">
@@ -36,16 +39,19 @@
                                 <div class="icon-input">
                                     <input class="form-control" type="password" required="" name="password" id="password">
                                     <img class="showHidePassword" src="{{asset('frontendAsset')}}/assets/icons/svg/eye-1.svg" alt="eye">
+                                    @if ($errors->has('password'))
+                                        <span class="error text-danger">{{ $errors->first('password') }}</span>
+                                    @endif
                                 </div>
                             </div>
 
-                            <a class="forgot-link" href="forgot-password.html">Forgot Password?</a>
+                            <a class="forgot-link" href="{{route('user.forgot.pass')}}">Forgot Password?</a>
 
                             <button type="submit" class="btn-solid rounded-pill line-none">Signin <i class="arrow"></i></button>
-                            <a href="index.html" class="btn-solid rounded-pill line-none btn-outline mt-3 d-flex justify-content-center">Home <i class="arrow"></i></a>
+                            <a href="{{route('home')}}" class="btn-solid rounded-pill line-none btn-outline mt-3 d-flex justify-content-center">Home <i class="arrow"></i></a>
                         </form>
 
-                        <span class="backto-link font-default content-color text-decoration-none">If you are new, <a class="text-decoration-underline theme-color" href="{{route('user.register')}}"> Create Now </a> </span>
+                        <span class="backto-link font-default content-color text-decoration-none">If you are new, <a class="text-decoration-underline theme-color" href="{{route('register')}}"> Create Now </a> </span>
                         <span class="line"><span>Or </span> </span>
                         <div class="link-group">
                             <a href="https://www.google.com/" class="button-link"><img src="{{asset('frontendAsset')}}/assets/icons/png/google.png" alt="google"> Sign in </a>

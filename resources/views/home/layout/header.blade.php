@@ -280,8 +280,14 @@
                         <div class="dropdown user-dropdown">
                             <a href="javascript:void(0)"><i data-feather="user"></i></a>
                             <ul class="onhover-show-div">
-                                <li><a href="{{route('user.login')}}">Login</a></li>
-                                <li><a href="{{route('user.register')}}">Register</a></li>
+
+                                @if(\Auth::check())
+                                    <li><a href="{{route('user.dashboard')}}">Profile</a></li>
+                                    <li><a href="{{route('user.logout')}}">Logout</a></li>
+                                @else
+                                    <li><a href="{{route('login')}}">Login</a></li>
+                                    <li><a href="{{route('register')}}">Register</a></li>
+                                @endif
                             </ul>
                         </div>
                     </li>

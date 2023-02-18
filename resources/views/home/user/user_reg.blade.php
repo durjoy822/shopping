@@ -20,28 +20,37 @@
                         <h5>CREATE ACCOUNT<span class="bg-theme-blue"></span></h5>
                         <p class="font-md content-color">How do i get access order,wishlist and recommendation ?</p>
 
-                        <form action="index.html" class="custom-form form-pill">
+                        <form action="{{route('user.register')}}" method="post" class="custom-form form-pill"> @csrf
                             <div class="input-box">
                                 <label for="full-name">Full Name</label>
-                                <input class="form-control" type="text" required="" name="full-name" id="full-name">
+                                <input class="form-control" type="text" required="" name="name" id="full-name">
+                                @error('name')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="input-box">
                                 <label for="email">Email</label>
                                 <input class="form-control" type="email" required="" name="email" id="email">
+                                @error('email')
+                                <div class="alert alert-danger">{{$message}}</div>
+                                @enderror
                             </div>
                             <div class="input-box">
                                 <label for="password">Password</label>
                                 <div class="icon-input">
                                     <input class="form-control" type="password" required="" name="password" id="password">
                                     <img class="showHidePassword" src="{{asset('frontendAsset')}}/assets/icons/svg/eye-1.svg" alt="eye">
+                                    @error('password')
+                                    <div class="alert alert-danger">{{$message}}</div>
+                                    @enderror
                                 </div>
                             </div>
 
                             <button type="submit" class="btn-solid rounded-pill line-none theme-color">SignUp <i class="arrow"></i></button>
-                            <a href="index.html" class="btn-solid rounded-pill line-none btn-outline mt-3 d-flex justify-content-center">Home <i class="arrow"></i></a>
+                            <a href="{{route('home')}}" class="btn-solid rounded-pill line-none btn-outline mt-3 d-flex justify-content-center">Home <i class="arrow"></i></a>
                         </form>
 
-                        <span class="backto-link font-default content-color text-decoration-none">Already have an Account? <a class="text-decoration-underline theme-color" href="{{route('user.login')}}">Sign In </a>
+                        <span class="backto-link font-default content-color text-decoration-none">Already have an Account? <a class="text-decoration-underline theme-color" href="{{route('login')}}">Sign In </a>
                 </span>
 
                         <span class="line"><span>Or </span> </span>

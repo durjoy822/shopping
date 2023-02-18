@@ -6,6 +6,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserAuthController;
+use App\Http\Controllers\UserDashboardController;
 
 
 /*
@@ -24,12 +26,22 @@ use App\Http\Controllers\ProductController;
 //});
 Route::get('/',[HomeController::class,'home'])->name('home');
 Route::get('/shop',[HomeController::class, 'shop'])->name('shop');
-Route::get('/compare',[HomeController::class, 'compare'])->name('compare');
 Route::get('/card',[HomeController::class, 'card'])->name('card');
 Route::get('/product_details/{id}',[HomeController::class, 'ProductDetails'])->name('all.details');
 Route::get('/product',[HomeController::class, 'product'])->name('product');
-Route::get('/userlogin',[HomeController::class, 'userLogin'])->name('user.login');
-Route::get('/user_reg',[HomeController::class, 'userRegister'])->name('user.register');
+
+
+
+Route::get('/userlogin',[HomeController::class, 'userLogin'])->name('login');
+Route::post('/login',[UserAuthController::class, 'login'])->name('user.login');
+Route::get('/user_reg',[HomeController::class, 'userRegister'])->name('register');
+Route::post('/register',[UserAuthController::class,'store'])->name('user.register');
+Route::get('/logout',[UserAuthController::class,'logout'])->name('user.logout');
+Route::get('/user_dashboard',[UserDashboardController::class,'userDashboard'])->name('user.dashboard');
+Route::get('/user_forgot_pass',[HomeController::class, 'userForgotPass'])->name('user.forgot.pass');
+Route::middleware(['auth'])->group(function () {
+
+});
 
 
 

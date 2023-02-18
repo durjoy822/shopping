@@ -26,10 +26,6 @@ class HomeController extends Controller
     public function product(){
         return view('home.product');
     }
-
-    public function compare(){
-        return view('home.compare');
-    }
     public function card(){
         return view('home.card');
     }
@@ -39,4 +35,11 @@ class HomeController extends Controller
     public function userRegister(){
         return view('home.user.user_reg');
     }
+    public function userForgotPass(){
+        return view('home.user.forgot_password');
+    }
+    public function skill(){
+        return view('home.user.forgot_password');
+    }
+
 }

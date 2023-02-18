@@ -485,10 +485,10 @@
                                                                         <i data-feather="heart"></i>
                                                                     </a>
                                                                 </li>
-                                                                <li>
-                                                                    <a href="{{ route('compare') }}"><i
-                                                                            data-feather="repeat"></i></a>
-                                                                </li>
+{{--                                                                <li>--}}
+{{--                                                                    <a href="{{ route('compare') }}"><i--}}
+{{--                                                                            data-feather="repeat"></i></a>--}}
+{{--                                                                </li>--}}
                                                                 <li>
                                                                     <a href="{{ route('all.details', ['id' => $product->id]) }}"
                                                                         data-bs-toggle="modal"
