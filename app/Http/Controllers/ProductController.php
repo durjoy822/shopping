@@ -149,7 +149,7 @@ class ProductController extends Controller
     }
     public function findSubcat($id = null)
     {
-        echo json_encode(Category::where('parentId')->get());
+        echo json_encode(Category::where('parent_id',$id)->get());
     }
 }
 

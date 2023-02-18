@@ -67,7 +67,7 @@
                                                 <div class="mb-4 row align-items-center">
                                                     <label class="col-sm-2 col-form-label form-label-title">Main Category</label>
                                                     <div class="col-sm-10">
-                                                        <select class="js-example-basic-single w-100"  name="category" >
+                                                        <select class="js-example-basic-single w-100"  name="category" id="main_category">
                                                             <option disabled="" >Category Menu</option>
                                                             @foreach($category as $item)
                                                                 <option value="{{$item->id}}"
@@ -81,9 +81,9 @@
                                                 </div>
 
                                                 <div class="mb-4 row align-items-center">
-                                                    <label class="col-sm-2 col-form-label form-label-title">Sub Category select</label>
+                                                    <label class="col-sm-2 col-form-label form-label-title">Sub Category</label>
                                                     <div class="col-sm-10">
-                                                        <select class="js-example-basic-single w-100"  name="category" >
+                                                        <select class="js-example-basic-single w-100"  name="category" id="sub_category">
                                                             <option disabled="" >Category Menu</option>
                                                             @foreach($subcat as $item)
                                                                 <option value="{{$item->id}}"
@@ -208,6 +208,32 @@
 <!-- page-wrapper End -->
 
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#main_category').on('change', function() {
+                let id = $(this).val();
+                $('#sub_category').empty();
+                $('#sub_category').append(`<option value="0" disabled selected>Processing...</option>`);
+                $.ajax({
+                    type: 'GET',
+                    url: 'subcategory/' + id,
+                    success: function(response) {
+                        var response = JSON.parse(response);
+                        $('#sub_category').empty();
+                        $('#sub_category').append(
+                            `<option value="0" disabled selected>Select your Sub Category</option>`
+                        );
+                        response.forEach(element => {
+                            $('#sub_category').append(
+                                `<option value="${element['id']}">${element['name']}</option>`
+                            );
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 @endsection
 
 
