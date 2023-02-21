@@ -47,6 +47,7 @@
                                     </thead>
 
                                     <tbody>
+                                    @foreach($cartItem as $item)
                                     <tr>
                                         <td>
                                             <div class="product-detail">
@@ -65,74 +66,19 @@
                                             </div>
                                         </td>
 
-                                        <td class="price d-none d-sm-table-cell">$120.00</td>
+                                        <td class="price d-none d-sm-table-cell">{{$item->price}} TK</td>
                                         <td class="d-none d-lg-table-cell">
                                             <div class="plus-minus">
                                                 <i class="sub" data-feather="minus"></i>
-                                                <input type="number" value="1" min="1" max="10">
+                                                <input type="number" value="{{$item->quantity}}" min="1" max="10">
                                                 <i class="add" data-feather="plus"></i>
                                             </div>
                                         </td>
-                                        <td class="total d-none d-xl-table-cell">$120.00</td>
+                                        <td class="total d-none d-xl-table-cell">{{$item->total_price}} Tk</td>
                                     </tr>
+                                    @endforeach
 
-                                    <tr>
-                                        <td>
-                                            <div class="product-detail">
-                                                <img class="pr-img" src="{{asset('frontendAsset')}}/assets/images/fashion/product/front/9.jpg" alt="image">
-                                                <div class="details">
-                                                    <h4 class="title-color font-default2">Concrete Jungle Pack</h4>
-                                                    <span class="sold-by">Sold By: <span>Fashion trend</span> </span>
-                                                    <span class="size gap-2 d-flex">Size : <span>Xl</span> </span>
-                                                    <span class="size gap-2 d-flex d-sm-none">Price : <span>$120.00</span> </span>
-                                                    <div class="plus-minus mt-2 d-inline-flex d-lg-none">
-                                                        <i class="sub" data-feather="minus"></i>
-                                                        <input type="number" value="1" min="1" max="10">
-                                                        <i class="add" data-feather="plus"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
 
-                                        <td class="price d-none d-sm-table-cell">$120.00</td>
-                                        <td class="d-none d-lg-table-cell">
-                                            <div class="plus-minus">
-                                                <i class="sub" data-feather="minus"></i>
-                                                <input type="number" value="1" min="1" max="10">
-                                                <i class="add" data-feather="plus"></i>
-                                            </div>
-                                        </td>
-                                        <td class="total d-none d-xl-table-cell">$120.00</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <div class="product-detail">
-                                                <img class="pr-img" src="{{asset('frontendAsset')}}/assets/images/fashion/product/front/7.jpg" alt="image">
-                                                <div class="details">
-                                                    <h4 class="title-color font-default2">Women’s long sleeve shirt</h4>
-                                                    <span class="sold-by">Sold By: <span>luisa Shop</span> </span>
-                                                    <span class="size gap-2 d-flex">Size : <span>Sm</span> </span>
-                                                    <span class="size gap-2 d-flex d-sm-none">Price : <span>$120.00</span> </span>
-                                                    <div class="plus-minus mt-2 d-inline-flex d-lg-none">
-                                                        <i class="sub" data-feather="minus"></i>
-                                                        <input type="number" value="1" min="1" max="10">
-                                                        <i class="add" data-feather="plus"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-
-                                        <td class="price d-none d-sm-table-cell">$120.00</td>
-                                        <td class="d-none d-lg-table-cell">
-                                            <div class="plus-minus">
-                                                <i class="sub" data-feather="minus"></i>
-                                                <input type="number" value="1" min="1" max="10">
-                                                <i class="add" data-feather="plus"></i>
-                                            </div>
-                                        </td>
-                                        <td class="total d-none d-xl-table-cell">$120.00</td>
-                                    </tr>
                                     </tbody>
                                 </table>
                             </div>

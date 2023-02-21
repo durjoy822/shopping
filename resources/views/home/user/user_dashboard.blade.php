@@ -45,8 +45,8 @@
                                 </div>
 
                                 <div class="user-name">
-                                    <h5>Josephin water</h5>
-                                    <h6>Josephin.water@gmail.com</h6>
+                                    <h5>{{$user->name}}</h5>
+                                    <h6>{{$user->email}}</h6>
                                 </div>
                             </div>
 
@@ -103,7 +103,7 @@
                             <div class="tab-pane show active" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
                                 <div class="dashboard-tab">
                                     <div class="title-box3">
-                                        <h3>Welcome Back Josephin water</h3>
+                                        <h3>Welcome Back {{$user->name}}</h3>
                                         <p>
                                             Welcome back Josephin water, here you can customize your profile and also track your order also, you can access your saved address and card. if you want change setting you can
                                             do it from here

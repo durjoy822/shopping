@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -20,14 +22,19 @@ class HomeController extends Controller
     }
     public function ProductDetails($id){
         return view('home.shop',[
-            'products'=>Product::find($id),
+            'product'=>Product::find($id),
         ]);
     }
-    public function product(){
-        return view('home.product');
+    public function product($id){
+        return view('home.product',[
+            'product'=>Product::find($id),
+        ]);
     }
     public function card(){
-        return view('home.card');
+        $product=Cart::where('user_id',Auth::id())->get();
+        return view('home.card',[
+            'cartItem'=>$product,
+            ]);
     }
     public function userLogin(){
         return view('home.user.userlogin');
@@ -38,8 +45,6 @@ class HomeController extends Controller
     public function userForgotPass(){
         return view('home.user.forgot_password');
     }
-    public function skill(){
-        return view('home.user.forgot_password');
-    }
+
 
 }

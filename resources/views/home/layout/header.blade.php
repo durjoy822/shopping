@@ -323,51 +323,19 @@
 
                                     <div class="card-wrap custom-scroll">
                                         <!-- Cart Item Start -->
+                                        @php $product = \App\Models\Cart::where('user_id',Auth::id())->get(); @endphp
+                                    @foreach($product as $item)
+                                            @php $p = \App\Models\Product::find($item->product_id); @endphp
                                         <div class="cart-card media">
-                                            <a href="product.html"> <img src="{{asset('frontendAsset')}}/assets/images/fashion/product/front/8.jpg" class="img-fluid" alt="product"> </a>
+                                            <a > <img src="{{asset($p->image_one)}}" class="img-fluid" alt="product"> </a>
                                             <div class="media-body">
-                                                <a href="product.html"> <h6>Concrete Jungle Pack</h6></a>
-                                                <span>$120.00</span>
-                                                <div class="plus-minus">
-                                                    <i class="sub" data-feather="minus"></i>
-                                                    <input type="number" value="1" min="1" max="10">
-                                                    <i class="add" data-feather="plus"></i>
-                                                </div>
+                                                <a href="product.html"> <h6>{{$p->name}}</h6></a>
+                                                <span>{{$item->price}} TK</span>
+                                                <div> Quantity : {{$item->quantity}}</div>
                                             </div>
                                             <button class="remove-cart"><i data-feather="x"></i></button>
                                         </div>
-                                        <!-- Cart Item End -->
-
-                                        <!-- Cart Item Start -->
-                                        <div class="cart-card media">
-                                            <a href="product.html"> <img src="{{asset('frontendAsset')}}/assets/images/fashion/product/front/9.jpg" class="img-fluid" alt="product"> </a>
-                                            <div class="media-body">
-                                                <a href="product.html"> <h6>Concrete Jungle Pack</h6></a>
-                                                <span>$120.00</span>
-                                                <div class="plus-minus">
-                                                    <i class="sub" data-feather="minus"></i>
-                                                    <input type="number" value="1" min="1" max="10">
-                                                    <i class="add" data-feather="plus"></i>
-                                                </div>
-                                            </div>
-                                            <button class="remove-cart"><i data-feather="x"></i></button>
-                                        </div>
-                                        <!-- Cart Item End -->
-
-                                        <!-- Cart Item Start -->
-                                        <div class="cart-card media">
-                                            <a href="product.html"> <img src="{{asset('frontendAsset')}}/assets/images/fashion/product/front/7.jpg" class="img-fluid" alt="product"> </a>
-                                            <div class="media-body">
-                                                <a href="product.html"> <h6>Concrete Jungle Pack</h6></a>
-                                                <span>$120.00</span>
-                                                <div class="plus-minus">
-                                                    <i class="sub" data-feather="minus"></i>
-                                                    <input type="number" value="1" min="1" max="10">
-                                                    <i class="add" data-feather="plus"></i>
-                                                </div>
-                                            </div>
-                                            <button class="remove-cart"><i data-feather="x"></i></button>
-                                        </div>
+                                    @endforeach
                                         <!-- Cart Item End -->
                                     </div>
                                     <div class="dropdown-footer">

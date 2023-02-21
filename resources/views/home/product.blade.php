@@ -36,19 +36,19 @@
                                         <div class="swiper thumbnail-img-box thumbnailSlider2">
                                             <div class="swiper-wrapper">
                                                 <div class="swiper-slide">
-                                                    <img src="{{asset('frontendAsset')}}/assets/images/fashion/product/front/7.jpg" alt="img">
+                                                    <img src="{{asset($product->image_one)}}" alt="img">
                                                 </div>
 
                                                 <div class="swiper-slide">
-                                                    <img src="{{asset('frontendAsset')}}/assets/images/fashion/product/front/7-1.jpg" alt="img">
+                                                    <img src="{{asset($product->image_two)}}" alt="img">
                                                 </div>
 
                                                 <div class="swiper-slide">
-                                                    <img src="{{asset('frontendAsset')}}/assets/images/fashion/product/front/7-2.jpg" alt="img">
+                                                    <img src="{{asset($product->image_three)}}" alt="img">
                                                 </div>
 
                                                 <div class="swiper-slide">
-                                                    <img src="{{asset('frontendAsset')}}/assets/images/fashion/product/front/7-3.jpg" alt="img">
+                                                    <img src="{{asset($product->image_one)}}" alt="img">
                                                 </div>
 
                                                 <div class="swiper-slide">
@@ -63,19 +63,19 @@
                                     <div class="swiper mainslider2">
                                         <div class="swiper-wrapper">
                                             <div class="swiper-slide">
-                                                <img class="bg-img" src="{{asset('frontendAsset')}}/assets/images/fashion/product/front/7.jpg" alt="img">
+                                                <img class="bg-img" src="{{asset($product->image_one)}}" alt="img">
                                             </div>
 
                                             <div class="swiper-slide">
-                                                <img class="bg-img" src="{{asset('frontendAsset')}}/assets/images/fashion/product/front/7-1.jpg" alt="img">
+                                                <img class="bg-img" src="{{asset($product->image_two)}}" alt="img">
                                             </div>
 
                                             <div class="swiper-slide">
-                                                <img class="bg-img" src="{{asset('frontendAsset')}}/assets/images/fashion/product/front/7-2.jpg" alt="img">
+                                                <img class="bg-img" src="{{asset($product->image_three)}}" alt="img">
                                             </div>
 
                                             <div class="swiper-slide">
-                                                <img class="bg-img" src="{{asset('frontendAsset')}}/assets/images/fashion/product/front/7-3.jpg" alt="img">
+                                                <img class="bg-img" src="{{asset($product->image_one)}}" alt="img">
                                             </div>
 
                                             <div class="swiper-slide">
@@ -91,7 +91,7 @@
                     <div class="col-md-5">
                         <div class="product-detail-box">
                             <div class="product-option">
-                                <h2>Women’s long sleeve shirt</h2>
+                                <h2>{{$product->name}}</h2>
                                 <div class="option rating-option">
                                     <ul class="rating p-0">
                                         <li>
@@ -113,15 +113,14 @@
                                     <span>120 Rating</span>
                                 </div>
 
-                                <div class="option price"><span> $200.00 </span> <del>$300.00</del></div>
+                                <div class="option price"><span> {{$product->price}} Tk  </span> <del> {{$product->old_price}}  TK</del></div>
 
                                 <div class="option">
                                     <p class="content-color">
-                                        100% Cotton Indigo shirt with western yoke. Apt for casual outings, this shirt will keep you comfortable and stylish all day long.Indigo shirt with western yoke. Apt for casual
-                                        outings
+                                        {{$product->details}}
                                     </p>
                                 </div>
-
+                            <form action="{{route('bag.cart',['id'=>$product->id])}}" method="post" id="cart">@csrf
                                 <div class="option-side">
                                     <div class="option">
                                         <div class="title-box4">
@@ -148,7 +147,7 @@
                                         </div>
                                         <div class="plus-minus">
                                             <i class="sub" data-feather="minus"></i>
-                                            <input type="number" value="1" min="1" max="10">
+                                            <input type="number" name="qty" value="1" min="1" max="10">
                                             <i class="add" data-feather="plus"></i>
                                         </div>
                                     </div>
@@ -180,10 +179,10 @@
                                 </div>
 
                                 <div class="btn-group">
-                                    <a href="javascript:void(0)" class="btn-solid btn-sm addtocart-btn">Add To Cart </a>
+                                    <a  type="submit" class="btn-solid btn-sm addtocart-btn" onclick="event.preventDefault(); document.getElementById('cart').submit();">Add To Cart </a>
                                     <a href="javascript:void(0)" class="btn-outline btn-sm wishlist-btn">Add To Wishlist</a>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>

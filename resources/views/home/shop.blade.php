@@ -1,6 +1,14 @@
 @extends('home.layout.master')
 @section('content')
     <!-- Main Start -->
+    @if (Session::has('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{ Session::get('success') }}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+    @endif
     <main class="main">
         <!-- Breadcrumb Start -->
         <div class="breadcrumb-wrap">
@@ -467,7 +475,7 @@
                                                                         alt="thumbnail"></li>
                                                             </ul>
 
-                                                            <a href="{{ route('product') }}" class="primary-img"><img
+                                                            <a href="{{ route('product',['id'=>$product->id]) }}" class="primary-img"><img
                                                                     class="img-fluid bg-img"
                                                                     src="{{ asset($product->image_one) }}"
                                                                     alt="product"> </a>
@@ -497,7 +505,7 @@
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="javascript:void(0)" class="addtocart-btn"> <i
+                                                                    <a href=" {{route('bag',['id'=>$product->id])}} " class="addtocart-btn"> <i
                                                                             data-feather="shopping-bag"></i> </a>
                                                                 </li>
                                                             </ul>
