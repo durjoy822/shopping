@@ -30,7 +30,7 @@ class HomeController extends Controller
             'product'=>Product::find($id),
         ]);
     }
-    public function card(){
+    public function cart(){
         $product=Cart::where('user_id',Auth::id())->get();
         return view('home.card',[
             'cartItem'=>$product,

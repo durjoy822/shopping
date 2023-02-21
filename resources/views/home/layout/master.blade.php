@@ -30,6 +30,8 @@
 {{--footer start --}}
     @include('home.layout.footer')
 {{--    footer end--}}
+
+    @include('home.layout.mobile_menu')
     <!-- Notification Start -->
     <div class="notification-wrap addToCart">
       <div class="notification">

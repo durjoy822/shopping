@@ -63,67 +63,6 @@
                                             </div>
                                         </li>
 
-                                        <!-- Oslo Plus -->
-                                        <li class="nav-item dropdown dropdown-mega">
-                                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Oslo Plus</a>
-                                            <div class="dropdown-menu mega-element-menu">
-                                                <div class="row g-4">
-                                                    <div class="col-xl-3">
-                                                        <div class="link-box">
-                                                            <h5>Portfolio Pages</h5>
-                                                            <div class="dropdown-column">
-                                                                <a class="dropdown-item" href="portfolio-2-grid.html">Portfolio 2 Grid</a>
-                                                                <a class="dropdown-item" href="portfolio-2-grid-masonry.html">Portfolio 2 Grid Masonry</a>
-                                                                <a class="dropdown-item" href="portfolio-3-grid.html">Portfolio 3 Grid <span class="badge bg-theme-theme">Hot</span></a>
-                                                                <a class="dropdown-item" href="portfolio-3-grid-masonry.html">Portfolio 3 Grid Masonry</a>
-                                                                <a class="dropdown-item" href="portfolio-4-grid.html">Portfolio 4 Grid</a>
-                                                                <a class="dropdown-item" href="portfolio-4-grid-masonry.html">Portfolio 4 Grid Masonry</a>
-                                                                <a class="dropdown-item" href="portfolio-no-space-masonry.html">Portfolio No Space Masonry</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-xl-3">
-                                                        <div class="link-box">
-                                                            <h5>Elements Pages</h5>
-                                                            <div class="dropdown-column">
-                                                                <a class="dropdown-item" href="banner-element.html">Banner Element</a>
-                                                                <a class="dropdown-item" href="brand-element.html">Brand Element</a>
-                                                                <a class="dropdown-item" href="button-element.html">Button Element </a>
-                                                                <a class="dropdown-item" href="categories-element.html">Categories Element</a>
-                                                                <a class="dropdown-item" href="collection-banner-element.html">Collection Banner Element</a>
-                                                                <a class="dropdown-item" href="home-element.html">Home Banner Element</a>
-                                                                <a class="dropdown-item" href="instagram-element.html">Instagram Element <span class="badge bg-theme-sun2">New</span></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-xl-3">
-                                                        <div class="link-box">
-                                                            <h5>Elements Pages</h5>
-                                                            <div class="dropdown-column">
-                                                                <a class="dropdown-item" href="offer-banner-element.html">Offer Banner Element</a>
-                                                                <a class="dropdown-item" href="brand-element.html">Brand Element <span class="badge bg-theme-theme">Hot</span></a>
-                                                                <a class="dropdown-item" href="product-card-element.html">Product Card Element</a>
-                                                                <a class="dropdown-item" href="seller-element.html">Seller Section Element</a>
-                                                                <a class="dropdown-item" href="service-element.html">Service Section Element</a>
-                                                                <a class="dropdown-item" href="tabs-element.html">Tabs Element</a>
-                                                                <a class="dropdown-item" href="title-element.html">Title Element</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-xl-3 d-none d-xl-block">
-                                                        <div class="link-box">
-                                                            <div class="menu-img">
-                                                                <img class="img-fluid" src="{{asset('frontendAsset')}}/assets/images/demo-img/menu-bg.jpg" alt="img">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-
                                         <!-- Pages -->
                                         <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Pages</a>
@@ -296,9 +235,9 @@
                         <div class="dropdown whislist-dropdown">
                             <a href="javascript:void(0)"><i data-feather="heart"></i> <span class="notification-label">0</span></a>
                             <div class="onhover-show-div">
-                                <a href="wishlist.html"> <img src="{{asset('frontendAsset')}}/assets/icons/svg/box.svg" class="img-fluid" alt="box"> </a>
+                                <a href="{{route('wishlist')}}"> <img src="{{asset('frontendAsset')}}/assets/icons/svg/box.svg" class="img-fluid" alt="box"> </a>
                                 <div class="content">
-                                    <a href="wishlist.html">
+                                    <a href="{{route('wishlist')}}">
                                         <h6>Your wishlist empty !!</h6>
                                         <p>explore more and shortlist items.</p>
                                     </a>
@@ -310,7 +249,11 @@
                     <!-- Cart Menu Start -->
                     <li>
                         <div class="dropdown shopingbag">
-                            <a href="javascript:void(0)" class="cart-button"><i data-feather="shopping-bag"></i> <span class="notification-label">3</span></a>
+                            <a href="javascript:void(0)" class="cart-button"><i data-feather="shopping-bag"></i>
+                            @if(Auth::check())
+                                @php $product_count = \App\Models\Cart::where('user_id',Auth::user()->id)->sum('quantity'); @endphp
+                                <span class="notification-label">{{$product_count}}</span></a>
+                            @endif
                             <a href="javascript:void(0)" class="overlay-cart overlay-common"></a>
                             <div class="onhover-cart-dropdown">
                                 <div class="onhover-show-div">
@@ -333,7 +276,7 @@
                                                 <span>{{$item->price}} TK</span>
                                                 <div> Quantity : {{$item->quantity}}</div>
                                             </div>
-                                            <button class="remove-cart"><i data-feather="x"></i></button>
+                                           <a href="{{route('bag.delete',['id'=>$item->id])}}"><button class="remove-cart"><i data-feather="x"></i></button></a>
                                         </div>
                                     @endforeach
                                         <!-- Cart Item End -->
@@ -351,7 +294,7 @@
                                         </div>
 
                                         <div class="btn-group block-group">
-                                            <a href="{{route('card')}}" class="btn-solid">View Cart</a>
+                                            <a href="{{route('cart')}}" class="btn-solid">View Cart</a>
                                             <a href="payment.html" class="btn-outline">Checkout</a>
                                         </div>
                                     </div>

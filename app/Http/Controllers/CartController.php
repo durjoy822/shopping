@@ -36,8 +36,21 @@ class CartController extends Controller
         Session::flash('success','add to cart ');
         return redirect(route('shop'));
     }
+    public function update(Request $request, $id){
+        $cart=Cart::find($id);
+        $cart->user_id      = Auth::user()->id;
+        $cart->product_id   =$request->product_id;
+        $cart->price        =Product::findOrFail($request->product_id)->price;
+        $cart->quantity     =$request->qty;
+        $cart->total_price  = $cart->price * $request->qty;
+        $cart->save();
+        Session::flash('success','update ');
+        return redirect()->back();
+    }
+
     public function bagDelete($id){
         $bagDel=Cart::find($id);
         $bagDel->delete();
+        return back();
     }
 }

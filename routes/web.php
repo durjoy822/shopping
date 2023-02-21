@@ -9,6 +9,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserAuthController;
 use App\Http\Controllers\UserDashboardController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\WishlistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +30,7 @@ Route::get('/',[HomeController::class,'home'])->name('home');
 Route::get('/shop',[HomeController::class, 'shop'])->name('shop');
 Route::get('/product_details/{id}',[HomeController::class, 'ProductDetails'])->name('all.details');
 Route::get('/product/{id}',[HomeController::class, 'product'])->name('product');
+Route::get('/wishlist',[WishlistController::class, 'wishList'])->name('wishlist');
 
 
 
@@ -39,11 +42,14 @@ Route::get('/logout',[UserAuthController::class,'logout'])->name('user.logout');
 Route::get('/user_dashboard',[UserDashboardController::class,'userDashboard'])->name('user.dashboard');
 Route::get('/user_forgot_pass',[HomeController::class, 'userForgotPass'])->name('user.forgot.pass');
 Route::middleware(['auth'])->group(function () {
-    Route::get('/card',[HomeController::class, 'card'])->name('card');
-    Route::get('bag/{id}',[CartController::class,'bag'])->name('bag');
-    Route::post('bag_cart/{id}',[CartController::class,'bagCart'])->name('bag.cart');
-//    Route::post('bag_delete/{id}',[CartController::class,'bagDelete'])->name('bag.delete');
 
+    Route::get('/cart',[HomeController::class, 'cart'])->name('cart');
+    Route::get('/bag/{id}',[CartController::class,'bag'])->name('bag');
+    Route::post('/bag_cart/{id}',[CartController::class,'bagCart'])->name('bag.cart');
+    Route::post('/bag_cart/update/{id}',[CartController::class,'update'])->name('bag.update');
+    Route::get('/bag_delete/{id}',[CartController::class,'bagDelete'])->name('bag.delete');
+
+    Route::get('/checkout',[CheckoutController::class,'CheckOut'])->name('check.out');
 
 });
 

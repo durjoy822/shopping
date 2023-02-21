@@ -13,15 +13,15 @@
                             <h1>Cart</h1>
                         </div>
                         <ol class="breadcrumb">
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="{{route('home')}}">Home</a></li>
                             <li>
                                 <a href="javascript:void(0)"><i data-feather="chevron-right"></i></a>
                             </li>
-                            <li><a href="shop-left-sidebar.html">Shop</a></li>
+                            <li><a href="{{route('shop')}}">Shop</a></li>
                             <li>
                                 <a href="javascript:void(0)"><i data-feather="chevron-right"></i></a>
                             </li>
-                            <li class="current"><a href="cart.html">Cart</a></li>
+                            <li class="current"><a href="{{'cart'}}">Cart</a></li>
                         </ol>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                     <div class="col-md-7 col-lg-8">
                         <div class="cart-wrap">
                             <div class="items-list">
-                                <table class="table cart-table m-md-0">
+                                <table class="table cart-table m-md-0 table-responsive">
                                     <thead>
                                     <tr>
                                         <th class="d-none d-sm-table-cell">PRODUCT</th>
@@ -50,10 +50,11 @@
                                     @foreach($cartItem as $item)
                                     <tr>
                                         <td>
+                                            @php $p = \App\Models\Product::find($item->product_id); @endphp
                                             <div class="product-detail">
-                                                <img class="pr-img" src="{{asset('frontendAsset')}}/assets/images/fashion/product/front/8.jpg" alt="image">
+                                                <img class="pr-img" src="{{asset($p->image_one)}}" alt="image">
                                                 <div class="details">
-                                                    <h4 class="title-color font-default2">Concrete Jungle Pack</h4>
+                                                    <h4 class="title-color font-default2">{{$p->name}}</h4>
                                                     <span class="sold-by">Sold By: <span>Roger Group</span> </span>
                                                     <span class="size gap-2 d-flex">Size : <span>M</span> </span>
                                                     <span class="size gap-2 d-flex d-sm-none">Price : <span>$120.00</span> </span>
@@ -68,11 +69,15 @@
 
                                         <td class="price d-none d-sm-table-cell">{{$item->price}} TK</td>
                                         <td class="d-none d-lg-table-cell">
+                                            <form action="{{route('bag.update',$item->id)}}" method="post">@csrf
+                                                <input type="hidden" value="{{$item->product_id}}" name="product_id">
                                             <div class="plus-minus">
                                                 <i class="sub" data-feather="minus"></i>
-                                                <input type="number" value="{{$item->quantity}}" min="1" max="10">
+                                                <input type="number" value="{{$item->quantity}}" name="qty" min="1" max="10">
                                                 <i class="add" data-feather="plus"></i>
+                                               <button class="btn btn-primary btn-sm mb-1" type="submit" value="update">update</button>
                                             </div>
+                                            </form>
                                         </td>
                                         <td class="total d-none d-xl-table-cell">{{$item->total_price}} Tk</td>
                                     </tr>
@@ -87,48 +92,50 @@
 
                     <div class="col-md-5 col-lg-4">
                         <div class="summery-wrap">
-                            <div class="coupon-box">
-                                <h5 class="cart-title">Coupon</h5>
-                                <div class="text-wrap">
-                                    <h4><i data-feather="tag"></i> Apply Coupon</h4>
-                                    <a href="javascript:void(0)" class="btn btn-outline btn-sm">Apply</a>
-                                </div>
+{{--                            <div class="coupon-box">--}}
+{{--                                <h5 class="cart-title">Coupon</h5>--}}
+{{--                                <div class="text-wrap">--}}
+{{--                                    <h4><i data-feather="tag"></i> Apply Coupon</h4>--}}
+{{--                                    <a href="javascript:void(0)" class="btn btn-outline btn-sm">Apply</a>--}}
+{{--                                </div>--}}
 
-                                <p class="content-color font-md mb-0"><a href="login.html" class="theme-color">Login</a> to see best coupon for you</p>
-                            </div>
+{{--                                <p class="content-color font-md mb-0"><a href="login.html" class="theme-color">Login</a> to see best coupon for you</p>--}}
+{{--                            </div>--}}
                             <div class="cart-wrap grand-total-wrap">
                                 <div>
                                     <div class="order-summery-box">
-                                        <h5 class="cart-title">Price Details (3 Items)</h5>
+                                        @php $product_count = \App\Models\Cart::where('user_id',Auth::user()->id)->sum('quantity'); @endphp
+                                        <h5 class="cart-title">Price Details ( <span class="text-warning"> {{ $product_count }} Item </span>) </h5>
                                         <ul class="order-summery">
+
                                             <li>
                                                 <span>Bag total</span>
-                                                <span>$220.00</span>
+                                                <span>{{\App\Models\Cart::where('user_id',Auth::user()->id)->sum('total_price')}} TK</span>
                                             </li>
 
                                             <li>
                                                 <span>Bag savings</span>
-                                                <span class="theme-color">-$20.00</span>
+                                                <span class="theme-color ">0.00 Tk</span>
                                             </li>
 
-                                            <li>
-                                                <span>Coupon Discount</span>
-                                                <a href="javascript:void(0)" class="font-danger">Apply Coupon</a>
-                                            </li>
+{{--                                            <li>--}}
+{{--                                                <span>Coupon Discount</span>--}}
+{{--                                                <a href="javascript:void(0)" class="font-danger">Apply Coupon</a>--}}
+{{--                                            </li>--}}
 
                                             <li>
                                                 <span>Delivery</span>
-                                                <span>$50.00</span>
+                                                <span> 50.00 TK</span>
                                             </li>
 
                                             <li class="pb-0">
                                                 <span>Total Amount</span>
-                                                <span>$270.00</span>
+                                                <span>{{App\Models\Cart::where('user_id',Auth::user()->id)->sum('total_price')+50.00}}TK</span>
                                             </li>
                                         </ul>
                                         <div class="row g-3 mt-2">
                                             <div class="col-6 col-md-12">
-                                                <a href="address.html" class="btn-solid checkout-btn">Checkout <i class="arrow"></i></a>
+                                                <a href="{{route('check.out')}}" class="btn-solid checkout-btn">Checkout <i class="arrow"></i></a>
                                             </div>
                                             <div class="col-6 col-md-12">
                                                 <a href="shop-left-sidebar.html" class="btn-outline w-100 justify-content-center checkout-btn"> Back To Shop </a>

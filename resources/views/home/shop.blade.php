@@ -22,11 +22,11 @@
                             <h1>Shop</h1>
                         </div>
                         <ol class="breadcrumb">
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="{{route('home')}}">Home</a></li>
                             <li>
                                 <a href="javascript:void(0)"><i data-feather="chevron-right"></i></a>
                             </li>
-                            <li class="current"><a href="shop-left-sidebar.html">Shop</a></li>
+                            <li class="current"><a href="{{route('shop')}}">Shop</a></li>
                         </ol>
                     </div>
                 </div>
@@ -648,21 +648,24 @@
                                                 <li>XL</li>
                                             </ul>
                                         </div>
+                                        <form action="{{route('bag.cart',['id'=>$product->id])}}" method="post" >@csrf
                                         <div class="option">
                                             <h5>Quantity:</h5>
                                             <div class="plus-minus">
                                                 <i class="sub" data-feather="minus"></i>
-                                                <input type="number" value="1" min="1" max="10">
+                                                <input type="number" name="qty" value="1" min="1" max="10">
                                                 <i class="add" data-feather="plus"></i>
                                             </div>
                                         </div>
 
                                         <div class="btn-group">
-                                            <a href="javascript:void(0)" data-bs-toggle="modal"
-                                                data-bs-target="#viewModal" class="btn-solid btn-sm addtocart-btn">Add To
-                                                Cart </a>
-                                            <a href="product.html" class="btn-outline btn-sm">View Full</a>
+{{--                                            <a href="javascript:void(0)" data-bs-toggle="modal"--}}
+{{--                                                data-bs-target="#viewModal" class="btn-solid btn-sm addtocart-btn">Add To--}}
+{{--                                                Cart </a>--}}
+                                            <button  type="submit" class="btn-solid btn-sm addtocart-btn" >Add to cart</button>
+                                            <a href="" class="btn-outline btn-sm">View Full</a>
                                         </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
