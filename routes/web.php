@@ -59,6 +59,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('payment_method',[HomeController::class,'paymentMethod'])->name('payment.method');
     Route::get('/checkout',[CheckoutController::class,'CheckOut'])->name('check.out');
+    Route::post('/order',[CheckoutController::class,'order'])->name('order');
 
 });
 
