@@ -29,8 +29,8 @@ class ProductController extends Controller
     {
 //        dd($request->all());
         $validator = Validator::make($request->all(), [
-            'old_price' => 'required',
-            'price' => 'required',
+            'old_price' => 'required|integer',
+            'price' => 'required|integer',
             'tag' => 'required',
             'category' => 'required|integer',
             'sku' => 'required',
@@ -87,8 +87,8 @@ class ProductController extends Controller
     public function update(Request $request, $id = null)
     {
         $validator = Validator::make($request->all(), [
-            'old_price' => 'required',
-            'price' => 'required',
+            'old_price' => 'required|integer',
+            'price' => 'required|integer',
             'tag' => 'required',
             'category' => 'required|integer',
             'sku' => 'required',
