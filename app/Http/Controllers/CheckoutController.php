@@ -6,6 +6,7 @@ use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Order_details;
 use App\Models\Payment;
+use App\Models\Product;
 use App\Models\Shipping;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -58,6 +59,9 @@ class CheckoutController extends Controller
             $details->quantity = $cart->quantity;
             $details->total_price = $cart->total_price;
             $details->save();
+            $product = Product::findOrfail($cart->product_id);
+            $product->quantity = $product->quantity - $cart->quantity;
+            $product save();
             $cart->delete();
         }
         return redirect()->route('home');
