@@ -9,13 +9,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
+use paginate;
 
 class ProductController extends Controller
 {
     public function index()
     {
         $categories = Category::where('parent_id', null)->get();
-        $products = Product::latest()->paginate(20);
+        $products = Product::latest()->paginate(15);
         return view('admin.product.index', compact('products', 'categories'));
     }
     public function create()
@@ -54,6 +55,7 @@ class ProductController extends Controller
             $product->sku = $request->sku;
             $product->quantity = $request->quantity;
             $product->name = $request->name;
+            $product->brand = $request->brand;
             $product->details = $request->details;
             $product->image_one =  $this->saveFile($request, 'image_one');
             $product->image_two =  $this->saveFile($request, 'image_two');
@@ -111,6 +113,7 @@ class ProductController extends Controller
             $product->sku = $request->sku;
             $product->quantity = $request->quantity;
             $product->name = $request->name;
+            $product->brand = $request->brand;
             $product->details = $request->details;
             if ($request->image_one) {
                 $product->image_one =  $this->saveFile($request, 'image_one');

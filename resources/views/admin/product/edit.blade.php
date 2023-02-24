@@ -26,6 +26,15 @@
                                                     <div class="alert alert-danger">{{ $message }}</div>
                                                     @enderror
                                                 </div>
+                                                <div class="mb-4 row align-items-center">
+                                                    <label class="form-label-title col-sm-2 mb-0">Product Brand</label>
+                                                    <div class="col-sm-10">
+                                                        <input class="form-control" value="{{$product->brand}}" name="brand" type="text" placeholder="Product brand">
+                                                    </div>
+                                                    @error('brand')
+                                                    <div class="alert alert-danger">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
 
                                                 <div class="mb-4 row align-items-center">
                                                     <label class="col-sm-2 col-form-label form-label-title">Product Description</label>

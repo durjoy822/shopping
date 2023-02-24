@@ -159,7 +159,7 @@
                                         </ul>
                                         <div class="row g-3 mt-2">
                                             <div class="col-6 col-md-12">
-                                                <a href="payment.html" class="btn-solid checkout-btn">Proceed To Pay <i class="arrow"></i></a>
+                                                <a href="{{route('payment.method')}}" class="btn-solid checkout-btn">Proceed To Pay <i class="arrow"></i></a>
                                             </div>
                                             <div class="col-6 col-md-12">
                                                 <a href="shop-left-sidebar.html" class="btn-outline w-100 justify-content-center checkout-btn"> Back To Shop </a>
@@ -186,7 +186,7 @@
                 </div>
 
                 <div class="modal-body full-grid-mobile">
-                    <form action="javascript:void(0)" class="custom-form form-pill">
+                    <form action="{{route('shipping.add')}}" method="post" class="custom-form form-pill">@csrf
                         <div class="row g-3 g-md-4">
                             <div class="col-12">
                                 <div class="input-box">
@@ -205,58 +205,43 @@
                             <div class="col-6">
                                 <div class="input-box">
                                     <label for="mobile">Mobile No:</label>
-                                    <input class="form-control" maxlength="9" type="number" required="" name="mobile" maxlength="10" id="mobile">
+                                    <input class="form-control" maxlength="11" type="number" required="" name="phone" maxlength="10" id="mobile">
                                 </div>
                             </div>
 
                             <div class="col-12">
                                 <div class="input-box">
-                                    <label for="address1">Address1</label>
-                                    <input class="form-control" type="text" required="" name="address1" id="address1">
+                                    <label for="address1">Address</label>
+                                    <input class="form-control" type="text" required="" name="address" id="address">
                                 </div>
                             </div>
-
                             <div class="col-12">
                                 <div class="input-box">
-                                    <label for="address1">Address2</label>
-                                    <input class="form-control" type="text" required="" name="address2" id="address2">
+                                    <label for="address1">State</label>
+                                    <input class="form-control" type="text" required="" name="state" id="address">
                                 </div>
                             </div>
-
                             <div class="col-6 col-sm-4">
                                 <div class="input-box">
                                     <label for="country">Country</label>
-                                    <select class="form-select form-control" id="country">
+                                    <select class="form-select form-control" name="country" id="country">
                                         <option selected="" disabled="" value="">Choose...</option>
-                                        <option>United States</option>
-                                        <option>India</option>
-                                        <option>America</option>
-                                        <option>South America</option>
-                                        <option>Dubai</option>
-                                        <option>Hong Kong</option>
-                                        <option>Indonesia</option>
-                                        <option>Pakistan</option>
-                                        <option>Saudi Arabia</option>
-                                        <option>China</option>
+                                        <option value="Bangladesh">Bangladesh</option>
                                     </select>
                                 </div>
                             </div>
 
                             <div class="col-6 col-sm-4">
                                 <div class="input-box">
-                                    <label for="city">City</label>
-                                    <select class="form-select form-control" id="city">
+                                    <label for="city">City/Town</label>
+                                    <select class="form-select form-control" name="city" id="city">
                                         <option selected="" disabled="" value="">Choose...</option>
-                                        <option>Almaty</option>
-                                        <option>India</option>
-                                        <option>America</option>
-                                        <option>South America</option>
-                                        <option>Dubai</option>
-                                        <option>Hong Kong</option>
-                                        <option>Indonesia</option>
-                                        <option>Pakistan</option>
-                                        <option>Saudi Arabia</option>
-                                        <option>China</option>
+                                        <option value="Dhaka">Dhaka</option>
+                                        <option value="Rajshahi">Rajshahi</option>
+                                        <option value="Pabna">Pabna</option>
+                                        <option value="Kustia">Kustia</option>
+                                        <option value="Rangpur">Rangpur</option>
+                                        <option value="Kulna">Kulna </option>
                                     </select>
                                 </div>
                             </div>
@@ -268,15 +253,16 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="modal-footer">
+                            <div class="btn-box">
+                                <button type="button" class="btn btn-outline rounded-pill" data-bs-dismiss="modal" aria-label="Close">Close</button>
+                                <button type="submit" class="btn btn-solid line-none rounded-pill">Save Address <i class="arrow"></i></button>
+                            </div>
+                        </div>
                     </form>
                 </div>
 
-                <div class="modal-footer">
-                    <div class="btn-box">
-                        <button type="button" class="btn btn-outline rounded-pill" data-bs-dismiss="modal" aria-label="Close">Close</button>
-                        <button type="button" class="btn btn-solid line-none rounded-pill">Save Address <i class="arrow"></i></button>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>

@@ -145,6 +145,9 @@
                                             <div class="col-xl-4">
                                                 <div class="order-success">
                                                     <div class="row g-4">
+                                                        <h4>Product Brand:<span class="text-warning"> {{$product->brand}}</span> </h4>
+
+
                                                         <h4>Product Details</h4>
                                                         <ul class="order-details">
                                                             <li>{{$product->details}}</li>

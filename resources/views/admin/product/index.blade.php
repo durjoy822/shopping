@@ -26,8 +26,9 @@
                                                                 <table class="table table-1d all-package">
                                                                     <thead>
                                                                         <tr>
-                                                                            <th>SL</th>
+
                                                                             <th>Product Image</th>
+                                                                            <th>Brand</th>
                                                                             <th>Product Name</th>
                                                                             <th>Category</th>
                                                                             <th>Current Qty</th>
@@ -40,13 +41,12 @@
                                                                     <tbody>
                                                                     @foreach($products as $product)
                                                                         <tr>
-                                                                            <td>{{$product->id}}</td>
                                                                             <td>
                                                                                <a href="{{route('admin.product.details',$product->id)}}">
                                                                                    <img src="{{asset($product->image_one)}}" class="img-fluid" style="width: 100px">
                                                                                </a>
                                                                             </td>
-
+                                                                            <td>{{$product->brand}}</td>
                                                                             <td><a href="{{route('admin.product.details',$product->id)}}">{{$product->name}}</a></td>
                                                                             @php $category=\App\Models\Category::find($product->category) @endphp
                                                                             <td><a href="javascript:void(0)">{{ $category->name }} </a></td>
@@ -88,30 +88,31 @@
 
                                                     <div class="pagination-box">
                                                         <nav class="ms-auto me-auto " aria-label="...">
-                                                            <ul class="pagination pagination-primary">
-                                                                <li class="page-item disabled">
-                                                                    <a class="page-link" href="javascript:void(0)"
-                                                                        tabindex="-1">Previous</a>
-                                                                </li>
+                                                           {{$products->links()}}
+{{--                                                            <ul class="pagination pagination-primary">--}}
+{{--                                                                <li class="page-item disabled">--}}
+{{--                                                                    <a class="page-link" href="javascript:void(0)"--}}
+{{--                                                                        tabindex="-1">Previous</a>--}}
+{{--                                                                </li>--}}
 
-                                                                <li class="page-item active">
-                                                                    <a class="page-link" href="javascript:void(0)">1</a>
-                                                                </li>
+{{--                                                                <li class="page-item active">--}}
+{{--                                                                    <a class="page-link" href="javascript:void(0)">1</a>--}}
+{{--                                                                </li>--}}
 
-                                                                <li class="page-item">
-                                                                    <a class="page-link" href="javascript:void(0)">2 <span
-                                                                            class="sr-only">(current)</span>
-                                                                    </a>
-                                                                </li>
+{{--                                                                <li class="page-item">--}}
+{{--                                                                    <a class="page-link" href="javascript:void(0)">2 <span--}}
+{{--                                                                            class="sr-only">(current)</span>--}}
+{{--                                                                    </a>--}}
+{{--                                                                </li>--}}
 
-                                                                <li class="page-item">
-                                                                    <a class="page-link" href="javascript:void(0)">3</a>
-                                                                </li>
+{{--                                                                <li class="page-item">--}}
+{{--                                                                    <a class="page-link" href="javascript:void(0)">3</a>--}}
+{{--                                                                </li>--}}
 
-                                                                <li class="page-item">
-                                                                    <a class="page-link" href="javascript:void(0)">Next</a>
-                                                                </li>
-                                                            </ul>
+{{--                                                                <li class="page-item">--}}
+{{--                                                                    <a class="page-link" href="javascript:void(0)">Next</a>--}}
+{{--                                                                </li>--}}
+{{--                                                            </ul>--}}
                                                         </nav>
                                                     </div>
                                                 </div>

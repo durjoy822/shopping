@@ -15,7 +15,7 @@ class HomeController extends Controller
     }
     public function shop(){
         return view('home.shop',[
-            'products'=>Product::all(),
+            'products'=>Product::paginate(20),
             'category'=>Category::where('parent_id',null)->get(),
             'subCat'=>Category::whereNotNull('parent_id')->get(),
         ]);
@@ -36,6 +36,14 @@ class HomeController extends Controller
             'cartItem'=>$product,
             ]);
     }
+
+    public function paymentMethod(){
+        return view('home.payment');
+    }
+
+
+
+
     public function userLogin(){
         return view('home.user.userlogin');
     }

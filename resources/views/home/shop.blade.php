@@ -145,56 +145,17 @@
 
                                             <div class="filter-content">
                                                 <ul class="filter-check">
+                                                   @php  $brands= \App\Models\Product::all() @endphp
+                                                    @foreach($brands as $brand)
                                                     <li>
                                                         <label class="checkboxes style-1">
                                                             <input type="checkbox" checked="">
                                                             <span class="checkbox__checkmark"></span>
-                                                            <span class="checkbox__body">Zera <span> 25</span></span>
+                                                            <span class="checkbox__body">{{$brand->brand}} <span> 25</span></span>
                                                         </label>
-                                                    </li>
-                                                    <li>
-                                                        <label class="checkboxes style-1">
-                                                            <input type="checkbox">
-                                                            <span class="checkbox__checkmark"></span>
-                                                            <span class="checkbox__body">Allen Solly <span>15</span></span>
-                                                        </label>
-                                                    </li>
-                                                    <li>
-                                                        <label class="checkboxes style-1">
-                                                            <input type="checkbox">
-                                                            <span class="checkbox__checkmark"></span>
-                                                            <span class="checkbox__body">Louis Philippe Sport
-                                                                <span>8</span></span>
-                                                        </label>
-                                                    </li>
-                                                    <li>
-                                                        <label class="checkboxes style-1">
-                                                            <input type="checkbox">
-                                                            <span class="checkbox__checkmark"></span>
-                                                            <span class="checkbox__body">H&M <span>25</span></span>
-                                                        </label>
-                                                    </li>
-                                                    <li>
-                                                        <label class="checkboxes style-1">
-                                                            <input type="checkbox">
-                                                            <span class="checkbox__checkmark"></span>
-                                                            <span class="checkbox__body">Fila <span>12</span></span>
-                                                        </label>
-                                                    </li>
-                                                    <li>
-                                                        <label class="checkboxes style-1">
-                                                            <input type="checkbox">
-                                                            <span class="checkbox__checkmark"></span>
-                                                            <span class="checkbox__body">Puma <span>32</span></span>
-                                                        </label>
-                                                    </li>
-                                                    <li>
-                                                        <label class="checkboxes style-1">
-                                                            <input type="checkbox">
-                                                            <span class="checkbox__checkmark"></span>
-                                                            <span class="checkbox__body">Nike <span>14</span></span>
-                                                        </label>
-                                                    </li>
+                                                    @endforeach
+
+
                                                 </ul>
                                             </div>
                                         </div>
@@ -489,7 +450,7 @@
                                                             <!-- Option -->
                                                             <ul class="option-wrap">
                                                                 <li>
-                                                                    <a href="javascript:void(0)" class="wishlist-btn">
+                                                                    <a href="{{route('wishlist.add',['id'=>$product->id])}}" class="wishlist-btn">
                                                                         <i data-feather="heart"></i>
                                                                     </a>
                                                                 </li>
@@ -514,7 +475,7 @@
                                                         <!-- Content Box -->
                                                         <div class="content-box">
                                                             <a href="product.html">
-                                                                <p>Chopard</p>
+                                                                <p>{{$product->brand}}</p>
                                                                 <h5>{{ $product->name }}</h5>
                                                                 <span>{{ $product->price }} TK </span>
                                                                 <del>{{ $product->old_price }}Tk </del>
@@ -538,13 +499,8 @@
 
                                     <div class="pagination-wrap mt-4 justify-content-center">
                                         <ul class="pagination">
-                                            <li>
-                                                <a href="javascript:void(0)" class="prev"> &laquo;</a>
-                                            </li>
-                                            <li><a href="javascript:void(0)">1</a></li>
-                                            <li><a href="javascript:void(0)" class="active">2</a></li>
-                                            <li><a href="javascript:void(0)">3</a></li>
-                                            <li><a href="javascript:void(0)" class="next"> &raquo;</a></li>
+
+                                           {{$products->links()}}
                                         </ul>
                                     </div>
                                 </div>

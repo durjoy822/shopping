@@ -25,7 +25,7 @@ class UserAuthController extends Controller
         if ($user->id){
             Session::flash('success','User Register Successfull');
             Auth::login($user);
-            return redirec()->route('home');
+            return redirect()->route('home');
         }else{
             Session::flash('warning','User Login Faild');
             return back();

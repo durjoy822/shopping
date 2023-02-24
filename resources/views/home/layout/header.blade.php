@@ -232,8 +232,12 @@
                     </li>
 
                     <li>
+
                         <div class="dropdown whislist-dropdown">
-                            <a href="javascript:void(0)"><i data-feather="heart"></i> <span class="notification-label">0</span></a>
+                            @if(Auth::check())
+                            @php $wishlist_count = \App\Models\Wishlist::where('User_id',Auth::user()->id)->sum('product_id'); @endphp
+                            <a href="{{route('wishlist')}}"><i data-feather="heart"></i> <span class="notification-label">{{$wishlist_count}}</span></a>
+                                @if($wishlist_count=='')
                             <div class="onhover-show-div">
                                 <a href="{{route('wishlist')}}"> <img src="{{asset('frontendAsset')}}/assets/icons/svg/box.svg" class="img-fluid" alt="box"> </a>
                                 <div class="content">
@@ -243,9 +247,11 @@
                                     </a>
                                 </div>
                             </div>
+                            @endif
+
                         </div>
                     </li>
-
+                @endif
                     <!-- Cart Menu Start -->
                     <li>
                         <div class="dropdown shopingbag">
@@ -272,7 +278,7 @@
                                         <div class="cart-card media">
                                             <a > <img src="{{asset($p->image_one)}}" class="img-fluid" alt="product"> </a>
                                             <div class="media-body">
-                                                <a href="product.html"> <h6>{{$p->name}}</h6></a>
+                                                <a> <h6>{{$p->name}}</h6></a>
                                                 <span>{{$item->price}} TK</span>
                                                 <div> Quantity : {{$item->quantity}}</div>
                                             </div>

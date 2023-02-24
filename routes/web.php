@@ -30,7 +30,7 @@ Route::get('/',[HomeController::class,'home'])->name('home');
 Route::get('/shop',[HomeController::class, 'shop'])->name('shop');
 Route::get('/product_details/{id}',[HomeController::class, 'ProductDetails'])->name('all.details');
 Route::get('/product/{id}',[HomeController::class, 'product'])->name('product');
-Route::get('/wishlist',[WishlistController::class, 'wishList'])->name('wishlist');
+
 
 
 
@@ -49,6 +49,15 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/bag_cart/update/{id}',[CartController::class,'update'])->name('bag.update');
     Route::get('/bag_delete/{id}',[CartController::class,'bagDelete'])->name('bag.delete');
 
+    Route::get('/wishlist',[WishlistController::class, 'wishList'])->name('wishlist');
+    Route::get('/wishlist_add/{id}',[WishlistController::class, 'wishListAdd'])->name('wishlist.add');
+    Route::post('/wishlist_delete',[WishlistController::class, 'wishListDelete'])->name('wishlist.delete');
+
+    Route::post('/shipping_address',[CheckoutController::class, 'shippingAddress'])->name('shipping.add');
+
+
+
+    Route::get('payment_method',[HomeController::class,'paymentMethod'])->name('payment.method');
     Route::get('/checkout',[CheckoutController::class,'CheckOut'])->name('check.out');
 
 });

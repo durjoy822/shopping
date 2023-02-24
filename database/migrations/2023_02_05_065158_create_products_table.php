@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('sku');
             $table->integer('quantity');
             $table->string('name');
+            $table->string('brand');
             $table->text('details');
             $table->string('image_one')->nullable();
             $table->string('image_two')->nullable();

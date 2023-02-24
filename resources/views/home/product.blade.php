@@ -180,7 +180,7 @@
 
                                 <div class="btn-group">
                                     <a  type="submit" class="btn-solid btn-sm addtocart-btn" onclick="event.preventDefault(); document.getElementById('cart').submit();">Add To Cart </a>
-                                    <a href="javascript:void(0)" class="btn-outline btn-sm wishlist-btn">Add To Wishlist</a>
+                                    <a href="{{route('wishlist.add',['id'=>$product->id])}}" class="btn-outline btn-sm wishlist-btn">Add To Wishlist</a>
                                 </div>
                             </form>
                         </div>
