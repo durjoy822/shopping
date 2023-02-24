@@ -61,7 +61,7 @@ class CheckoutController extends Controller
             $details->save();
             $product = Product::findOrfail($cart->product_id);
             $product->quantity = $product->quantity - $cart->quantity;
-            $product save();
+            $product->save();
             $cart->delete();
         }
         return redirect()->route('home');
