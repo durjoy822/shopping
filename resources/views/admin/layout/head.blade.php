@@ -51,4 +51,8 @@
 
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="{{asset('admin/assets/css/responsive.css')}}">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+
 </head>

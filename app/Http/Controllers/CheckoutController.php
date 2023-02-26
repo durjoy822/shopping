@@ -36,16 +36,25 @@ class CheckoutController extends Controller
     }
     public function order(Request $request)
     {
+        dd($request->all());
+
+        if($request->cashondevelvery){
+            $payment_id=0;
+        }else{
+
+
         $payment = new Payment();
         $payment->payment_method = 'Bkash';
         $payment->transaction_id = "70QACT4HZ";
         $payment->amount = Cart::where('user_id', Auth::id())->sum('total_price') + 50.0;
         $payment->save();
+        $payment_id=$payment->id;
 
+    }
         $order = new Order();
         $order->user_id = Auth::user()->id;
         $order->shipping_id = $request->shipping_id;
-        $order->payment_id = $payment->id;
+        $order->payment_id = $payment_id;
         $order->total_price = Cart::where('user_id', Auth::id())->sum('total_price') + 50.0;
         $order->status = 'pending';
         $order->save();

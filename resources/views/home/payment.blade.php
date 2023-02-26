@@ -48,62 +48,62 @@
                             <div class="payment-section">
                                 <div class="accordion" id="accordionExample">
                                     <!-- Accordion Start -->
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingOne">
-                                            <button class="accordion-button font-md title-color" type="button"
-                                                data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
-                                                aria-controls="collapseOne">
-                                                Select Card <span><i data-feather="chevron-right"></i></span>
-                                            </button>
-                                        </h2>
-                                        <div id="collapseOne" class="accordion-collapse collapse show"
-                                            aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body">
-                                                <div class="row g-3 filter-row">
-                                                    <div class="col-sm-6 col-md-12 col-lg-6">
-                                                        <div class="filter-col radio-box">
-                                                            <input class="radio-input" checked="" type="radio"
-                                                                name="card" id="card1" value="option1">
-                                                            <label class="radio-label content-color" for="card1"><span
-                                                                    class="font-md"> 9800 XXXX XXXX 0545 <img
-                                                                        class="payment-card"
-                                                                        src="{{ asset('frontendAsset') }}/assets/icons/png/1.png"
-                                                                        alt="card"> </span></label>
-                                                        </div>
-                                                    </div>
+{{--                                    <div class="accordion-item">--}}
+{{--                                        <h2 class="accordion-header" id="headingOne">--}}
+{{--                                            <button class="accordion-button font-md title-color" type="button"--}}
+{{--                                                data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"--}}
+{{--                                                aria-controls="collapseOne">--}}
+{{--                                                Select Card <span><i data-feather="chevron-right"></i></span>--}}
+{{--                                            </button>--}}
+{{--                                        </h2>--}}
+{{--                                        <div id="collapseOne" class="accordion-collapse collapse show"--}}
+{{--                                            aria-labelledby="headingOne" data-bs-parent="#accordionExample">--}}
+{{--                                            <div class="accordion-body">--}}
+{{--                                                <div class="row g-3 filter-row">--}}
+{{--                                                    <div class="col-sm-6 col-md-12 col-lg-6">--}}
+{{--                                                        <div class="filter-col radio-box">--}}
+{{--                                                            <input class="radio-input" checked="" type="radio"--}}
+{{--                                                                name="card" id="card1" value="option1">--}}
+{{--                                                            <label class="radio-label content-color" for="card1"><span--}}
+{{--                                                                    class="font-md"> 9800 XXXX XXXX 0545 <img--}}
+{{--                                                                        class="payment-card"--}}
+{{--                                                                        src="{{ asset('frontendAsset') }}/assets/icons/png/1.png"--}}
+{{--                                                                        alt="card"> </span></label>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
 
-                                                    <div class="col-sm-6 col-md-12 col-lg-6">
-                                                        <div class="filter-col radio-box">
-                                                            <input class="radio-input" type="radio" name="card"
-                                                                id="card2" value="option1">
-                                                            <label class="radio-label content-color" for="card2">
-                                                                <span class="font-md"> 6580 XXXX XXXX 2562 <img
-                                                                        class="payment-card"
-                                                                        src="{{ asset('frontendAsset') }}/assets/icons/png/2.png"
-                                                                        alt="card"> </span></label>
-                                                        </div>
-                                                    </div>
+{{--                                                    <div class="col-sm-6 col-md-12 col-lg-6">--}}
+{{--                                                        <div class="filter-col radio-box">--}}
+{{--                                                            <input class="radio-input" type="radio" name="card"--}}
+{{--                                                                id="card2" value="option1">--}}
+{{--                                                            <label class="radio-label content-color" for="card2">--}}
+{{--                                                                <span class="font-md"> 6580 XXXX XXXX 2562 <img--}}
+{{--                                                                        class="payment-card"--}}
+{{--                                                                        src="{{ asset('frontendAsset') }}/assets/icons/png/2.png"--}}
+{{--                                                                        alt="card"> </span></label>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
 
-                                                    <div class="col-sm-6 col-md-12 col-lg-6">
-                                                        <div class="filter-col radio-box">
-                                                            <input class="radio-input" type="radio" name="card"
-                                                                id="card3" value="option1">
-                                                            <label class="radio-label content-color" for="card3">
-                                                                <span class="font-md">
-                                                                    5125 XXXX XXXX 6262 <img class="payment-card discovery"
-                                                                        src="{{ asset('frontendAsset') }}/assets/icons/png/5.png"
-                                                                        alt="card">
-                                                                    <img class="payment-card discovery-w"
-                                                                        src="{{ asset('frontendAsset') }}/assets/icons/png/discover-w.png"
-                                                                        alt="card">
-                                                                </span>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+{{--                                                    <div class="col-sm-6 col-md-12 col-lg-6">--}}
+{{--                                                        <div class="filter-col radio-box">--}}
+{{--                                                            <input class="radio-input" type="radio" name="card"--}}
+{{--                                                                id="card3" value="option1">--}}
+{{--                                                            <label class="radio-label content-color" for="card3">--}}
+{{--                                                                <span class="font-md">--}}
+{{--                                                                    5125 XXXX XXXX 6262 <img class="payment-card discovery"--}}
+{{--                                                                        src="{{ asset('frontendAsset') }}/assets/icons/png/5.png"--}}
+{{--                                                                        alt="card">--}}
+{{--                                                                    <img class="payment-card discovery-w"--}}
+{{--                                                                        src="{{ asset('frontendAsset') }}/assets/icons/png/discover-w.png"--}}
+{{--                                                                        alt="card">--}}
+{{--                                                                </span>--}}
+{{--                                                            </label>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                     <!-- Accordion End -->
 
                                     <!-- Accordion Start -->
@@ -112,7 +112,7 @@
                                             <button class="accordion-button font-md title-color collapsed" type="button"
                                                 data-bs-toggle="collapse" data-bs-target="#collapseTwo"
                                                 aria-expanded="false" aria-controls="collapseTwo">
-                                                Net Banking <span><i data-feather="chevron-right"></i></span>
+                                                Net Banking/Moblile Banking <span><i data-feather="chevron-right"></i></span>
                                             </button>
                                         </h2>
                                         <div id="collapseTwo" class="accordion-collapse collapse"
@@ -121,122 +121,31 @@
                                                 <div class="row">
                                                     <!-- Net Banking Option Start -->
                                                     <div class="input-box radio-box col-6">
-                                                        <input class="radio-input" type="radio" name="radio1"
-                                                            id="c-bank" value="option1" checked="">
-                                                        <label class="radio-label" for="c-bank">Industrial Bank </label>
+                                                        <input class="radio-input" type="radio" name="payment_method" id="rd1" value="bkash" >
+                                                        <label class="radio-label" for="rd1">Bkash</label>
+                                                        <input type="text" name="transaction_id" placeholder="Transaction_Id" class="form-control">
                                                     </div>
                                                     <!-- Net Banking Option End -->
 
                                                     <!-- Net Banking Option Start -->
                                                     <div class="input-box radio-box col-6">
-                                                        <input class="radio-input" type="radio" name="radio1"
-                                                            id="con-bank" value="option1">
-                                                        <label class="radio-label" for="con-bank">Construction Bank
-                                                            Corp.</label>
+                                                        <input class="radio-input" type="radio" name="payment_method"
+                                                            id="rd2" value="nagod">
+                                                        <label class="radio-label" for="rd2">Nagod</label>
+                                                        <input type="text" name="transaction_id" placeholder="Transaction_Id" class="form-control">
+
                                                     </div>
                                                     <!-- Net Banking Option End -->
 
                                                     <!-- Net Banking Option Start -->
                                                     <div class="input-box radio-box col-6">
-                                                        <input class="radio-input" type="radio" name="radio1"
-                                                            id="agr-bank" value="option1">
-                                                        <label class="radio-label" for="agr-bank"> Agricultural
-                                                            Bank</label>
+                                                        <input class="radio-input" type="radio" name="payment_method"
+                                                            id="rd3" value="roket" >
+                                                        <label class="radio-label" for="rd3"> Roket</label>
+                                                        <input type="text" name="transaction_id" placeholder="Transaction_Id" class="form-control">
+
                                                     </div>
                                                     <!-- Net Banking Option End -->
-
-                                                    <!-- Net Banking Option Start -->
-                                                    <div class="input-box radio-box col-6">
-                                                        <input class="radio-input" type="radio" name="radio1"
-                                                            id="hsbc-bank" value="option1">
-                                                        <label class="radio-label" for="hsbc-bank"> HSBC Holdings </label>
-                                                    </div>
-                                                    <!-- Net Banking Option End -->
-
-                                                    <!-- Net Banking Option Start -->
-                                                    <div class="input-box radio-box col-6">
-                                                        <input class="radio-input" type="radio" name="radio1"
-                                                            id="a-bank" value="option1">
-                                                        <label class="radio-label" for="a-bank">Bank of America</label>
-                                                    </div>
-                                                    <!-- Net Banking Option End -->
-
-                                                    <!-- Net Banking Option Start -->
-                                                    <div class="input-box radio-box col-6">
-                                                        <input class="radio-input" type="radio" name="radio1"
-                                                            id="jpm-moro" value="option1">
-                                                        <label class="radio-label" for="jpm-moro">JPMorgan Chase &
-                                                            Co.</label>
-                                                    </div>
-                                                    <!-- Net Banking Option End -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Accordion End -->
-
-                                    <!-- Accordion Start -->
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingThree">
-                                            <button class="accordion-button font-md title-color collapsed" type="button"
-                                                data-bs-toggle="collapse" data-bs-target="#collapseThree"
-                                                aria-expanded="false" aria-controls="collapseThree">
-                                                Wallet/UPI <span><i data-feather="chevron-right"></i></span>
-                                            </button>
-                                        </h2>
-                                        <div id="collapseThree" class="accordion-collapse collapse"
-                                            aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body">
-                                                <div class="row">
-                                                    <!-- Wallet Option Start -->
-                                                    <div class="input-box radio-box col-6">
-                                                        <input class="radio-input" type="radio" name="radio2"
-                                                            id="adyen" value="option1" checked="">
-                                                        <label class="radio-label" for="adyen">Adyen </label>
-                                                    </div>
-                                                    <!-- Wallet Option End -->
-
-                                                    <!-- Wallet Option Start -->
-                                                    <div class="input-box radio-box col-6">
-                                                        <input class="radio-input" type="radio" name="radio2"
-                                                            id="airtel-money" value="option1">
-                                                        <label class="radio-label" for="airtel-money"> Airtel
-                                                            Money</label>
-                                                    </div>
-                                                    <!-- Wallet Option End -->
-
-                                                    <!-- Wallet Option Start -->
-                                                    <div class="input-box radio-box col-6">
-                                                        <input class="radio-input" type="radio" name="radio2"
-                                                            id="alliedWallet" value="option1">
-                                                        <label class="radio-label" for="alliedWallet"> AlliedWallet
-                                                        </label>
-                                                    </div>
-                                                    <!-- Wallet Option End -->
-
-                                                    <!-- Wallet Option Start -->
-                                                    <div class="input-box radio-box col-6">
-                                                        <input class="radio-input" type="radio" name="radio2"
-                                                            id="apple-Pay" value="option1">
-                                                        <label class="radio-label" for="apple-Pay"> Apple Pay </label>
-                                                    </div>
-                                                    <!-- Wallet Option End -->
-
-                                                    <!-- Wallet Option Start -->
-                                                    <div class="input-box radio-box col-6">
-                                                        <input class="radio-input" type="radio" name="radio2"
-                                                            id="brinks" value="option1">
-                                                        <label class="radio-label" for="brinks"> Brinks </label>
-                                                    </div>
-                                                    <!-- Wallet Option End -->
-
-                                                    <!-- Wallet Option Start -->
-                                                    <div class="input-box radio-box col-6">
-                                                        <input class="radio-input" type="radio" name="radio2"
-                                                            id="cardFree" value="option1">
-                                                        <label class="radio-label" for="cardFree">CardFree</label>
-                                                    </div>
-                                                    <!-- Wallet Option End -->
                                                 </div>
                                             </div>
                                         </div>
@@ -258,9 +167,9 @@
                                                 <ul class="filter-row">
                                                     <li class="filter-col active">
                                                         <div class="input-box mb-0 radio-box">
-                                                            <input class="radio-input" type="radio" checked=""
-                                                                name="cash" id="cash" value="option1">
-                                                            <label class="radio-label" for="cash">
+                                                            <input class="radio-input" type="radio"
+                                                                name="cash_on_delevery" id="rd4" value="COD">
+                                                            <label class="radio-label" for="rd4">
                                                                 Cash on Delivery <svg>
                                                                     <use
                                                                         xlink:href="{{ asset('frontendAsset') }}/assets/icons/svg/_sprite.svg#cash">
@@ -344,4 +253,15 @@
             <!-- Checkout Section End -->
         </form>
     </main>
+    <script>
+        $(input.radio).click(function () {
+            var id=($(this).attr('id'));
+        })
+     var inputs=$("#id")
+        if($(this).is(':checked')){
+            $("."+id).not(this).prop('',true)
+        }else{
+            $("."+id).prop('',false)
+        }
+    </script>
 @endsection

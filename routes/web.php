@@ -11,6 +11,7 @@ use App\Http\Controllers\UserDashboardController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\ProductDetailsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,11 +56,10 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/shipping_address',[CheckoutController::class, 'shippingAddress'])->name('shipping.add');
 
-
-
     Route::get('payment_method',[HomeController::class,'paymentMethod'])->name('payment.method');
     Route::get('/checkout',[CheckoutController::class,'CheckOut'])->name('check.out');
     Route::post('/order',[CheckoutController::class,'order'])->name('order');
+
 
 });
 
@@ -93,6 +93,9 @@ Route::group(['prefix' => 'admin'], function () {
 
         Route::get('/product/subcategory/{id}', [ProductController::class, 'findSubcat']);
         Route::get('/product/edit/subcategory/{id}', [ProductController::class, 'findSubcat']);
+
+        Route::get('/product/details', [ProductDetailsController::class, 'proDetailsIndex'])->name('admin.product.details');
+        Route::post('/product/details/store', [ProductDetailsController::class, 'proDetailsStore'])->name('admin.pro.details.store');
 
 
     });
