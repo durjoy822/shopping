@@ -12,6 +12,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\ProductDetailsController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,13 +36,14 @@ Route::get('/product/{id}',[HomeController::class, 'product'])->name('product');
 
 
 
-Route::get('/userlogin',[HomeController::class, 'userLogin'])->name('login');
+Route::get('/userlogin',[UserController::class, 'userLogin'])->name('login');
 Route::post('/login',[UserAuthController::class, 'login'])->name('user.login');
-Route::get('/user_reg',[HomeController::class, 'userRegister'])->name('register');
+Route::get('/user_reg',[UserController::class, 'userRegister'])->name('register');
 Route::post('/register',[UserAuthController::class,'store'])->name('user.register');
 Route::get('/logout',[UserAuthController::class,'logout'])->name('user.logout');
 Route::get('/user_dashboard',[UserDashboardController::class,'userDashboard'])->name('user.dashboard');
-Route::get('/user_forgot_pass',[HomeController::class, 'userForgotPass'])->name('user.forgot.pass');
+Route::get('/user_forgot_pass',[UserController::class, 'userForgotPass'])->name('user.forgot.pass');
+
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/cart',[HomeController::class, 'cart'])->name('cart');
@@ -64,13 +66,19 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
-
+//Admin Route here
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/register', [AdminController::class, 'registerForm'])->name('admin.register');
     Route::post('/new', [AdminAuthController::class, 'newAdmin'])->name('admin.new');
     Route::get('/login', [AdminController::class, 'loginForm'])->name('admin.login');
     Route::post('/auth', [AdminAuthController::class, 'authCheck'])->name('admin.auth');
+
     Route::get('/forget_password', [AdminController::class, 'forgetPassword'])->name('login.forget.password');
+    Route::post('/forget/pass/submit', [AdminController::class, 'forgetPassSubmit'])->name('forget.password.submit');
+    Route::get('/reset/pasword/{token}', [AdminController::class, 'ShowResetPasswordForm'])->name('reset.password.get');
+    Route::post('/reset/pasword', [AdminController::class, 'resetPasswordForm'])->name('reset.password.post');
+    Route::post('/password/update', [AdminController::class, 'resetPassword'])->name('reset.password');
+
 
     Route::middleware(admin::class)->group(function (){
         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');

@@ -55,4 +55,32 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
     </script>
 
+
+
+    <style>
+        .alert-dismissible .close {
+            padding: 1px 9px;
+            border-radius: 19px;
+            float: right;
+            top: 4px;
+            opacity: 0.5;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        .alert .close span {
+            font-size: 19px;
+            font-weight: 400;
+            display: inline-block;
+            border-radius: 3px;
+            text-shadow: none;
+            padding: 0px;
+
+        }
+        .alert {
+            border-radius: 0.15rem;
+            padding: 21px;
+            padding-top: 9px;
+        }
+    </style>
+
 </head>

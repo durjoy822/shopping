@@ -31,7 +31,6 @@ class UserAuthController extends Controller
             return back();
         }
     }
-
     public function login(Request $request){
 //        dd($request->all());
         $request->validate([
@@ -50,5 +49,10 @@ class UserAuthController extends Controller
         Session::flash('success','User Logout Successfull');
         return redirect()->route('home');
     }
+
+
+    
+
+
 
 }

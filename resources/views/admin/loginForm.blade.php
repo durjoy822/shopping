@@ -1,10 +1,18 @@
 @include('admin.layout.head')
 <div class="container-fluid p-0">
-    @if (Session::has('warning'))
+    @if (Session::has('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{ Session::get('success') }}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true" class="text-danger">×</span>
+            </button>
+        </div>
+    @endif
+        @if (Session::has('warning'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>{{ Session::get('warning') }}</strong>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">×</span>
+                <span aria-hidden="true" class="text-danger">×</span>
             </button>
         </div>
     @endif

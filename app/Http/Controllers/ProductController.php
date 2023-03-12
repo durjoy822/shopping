@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
@@ -61,7 +62,10 @@ class ProductController extends Controller
             $product->image_two =  $this->saveFile($request, 'image_two');
             $product->image_three =  $this->saveFile($request, 'image_three');
             $product->save();
-            return redirect()->route('admin.product.index');
+            if ($product->id){
+                Session::flash('success','product store successfull!');
+                return redirect()->route('admin.product.index');
+            }
         }
     }
     public function saveFile($request, $fieldName){

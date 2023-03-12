@@ -15,7 +15,7 @@ class HomeController extends Controller
     }
     public function shop(){
         return view('home.shop',[
-            'products'=>Product::paginate(20),
+            'products'=>Product::where('status','Published')->paginate(20),
             'category'=>Category::where('parent_id',null)->get(),
             'subCat'=>Category::whereNotNull('parent_id')->get(),
         ]);
@@ -42,17 +42,6 @@ class HomeController extends Controller
     }
 
 
-
-
-    public function userLogin(){
-        return view('home.user.userlogin');
-    }
-    public function userRegister(){
-        return view('home.user.user_reg');
-    }
-    public function userForgotPass(){
-        return view('home.user.forgot_password');
-    }
 
 
 }
