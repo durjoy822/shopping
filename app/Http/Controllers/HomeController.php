@@ -40,8 +40,4 @@ class HomeController extends Controller
     public function paymentMethod(){
         return view('home.payment');
     }
-
-
-
-
 }

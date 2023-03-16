@@ -42,7 +42,12 @@ Route::get('/user_reg',[UserController::class, 'userRegister'])->name('register'
 Route::post('/register',[UserAuthController::class,'store'])->name('user.register');
 Route::get('/logout',[UserAuthController::class,'logout'])->name('user.logout');
 Route::get('/user_dashboard',[UserDashboardController::class,'userDashboard'])->name('user.dashboard');
+
+
 Route::get('/user_forgot_pass',[UserController::class, 'userForgotPass'])->name('user.forgot.pass');
+Route::post('/forgot_pass_submit',[UserController::class,'resetPasslinkSent'])->name('reset.pass.link.submit');
+Route::get('/reset_pass_form/{token}',[UserController::class,'userResetPassForm'])->name('reset.pass.form');
+Route::post('/reset_pass_submit',[UserController::class,'resetPassSubmit'])->name('reset.pass.submit');
 
 Route::middleware(['auth'])->group(function () {
 
@@ -88,7 +93,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/category/create', [CategoryController::class, 'create'])->name('admin.category.create');
         Route::post('/category/store', [CategoryController::class, 'store'])->name('admin.category.store');
         Route::get('/category/edit/{id}', [CategoryController::class, 'edit'])->name('admin.category.edit');
-        Route::post('/category/update/{id}', [CategoryController::class, 'update'])->name('admin.category.update');
+        Route::post('/category/update', [CategoryController::class, 'update'])->name('admin.category.update');
         Route::get('/category/delete/{id}', [CategoryController::class, 'delete'])->name('admin.category.delete');
 
         Route::get('/product', [ProductController::class, 'index'])->name('admin.product.index');
@@ -96,7 +101,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/product/store', [ProductController::class, 'store'])->name('admin.product.store');
         Route::get('/product/details/{id}',[ProductController::class,'details'])->name('admin.product.details');
         Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->name('admin.product.edit');
-        Route::post('/product/update/{id}', [ProductController::class, 'update'])->name('admin.product.update');
+        Route::post('/product/update', [ProductController::class, 'update'])->name('admin.product.update');
         Route::post('/product/delete', [ProductController::class, 'delete'])->name('admin.product.delete');
 
         Route::get('/product/subcategory/{id}', [ProductController::class, 'findSubcat']);

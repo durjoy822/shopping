@@ -107,49 +107,49 @@
                                     <!-- Accordion End -->
 
                                     <!-- Accordion Start -->
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingTwo">
-                                            <button class="accordion-button font-md title-color collapsed" type="button"
-                                                data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                                                aria-expanded="false" aria-controls="collapseTwo">
-                                                Net Banking/Moblile Banking <span><i data-feather="chevron-right"></i></span>
-                                            </button>
-                                        </h2>
-                                        <div id="collapseTwo" class="accordion-collapse collapse"
-                                            aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body net-banking">
-                                                <div class="row">
-                                                    <!-- Net Banking Option Start -->
-                                                    <div class="input-box radio-box col-6">
-                                                        <input class="radio-input" type="radio" name="payment_method" id="rd1" value="bkash" >
-                                                        <label class="radio-label" for="rd1">Bkash</label>
-                                                        <input type="text" name="transaction_id" placeholder="Transaction_Id" class="form-control">
-                                                    </div>
-                                                    <!-- Net Banking Option End -->
+{{--                                    <div class="accordion-item">--}}
+{{--                                        <h2 class="accordion-header" id="headingTwo">--}}
+{{--                                            <button class="accordion-button font-md title-color collapsed" type="button"--}}
+{{--                                                data-bs-toggle="collapse" data-bs-target="#collapseTwo"--}}
+{{--                                                aria-expanded="false" aria-controls="collapseTwo">--}}
+{{--                                                Net Banking/Moblile Banking <span><i data-feather="chevron-right"></i></span>--}}
+{{--                                            </button>--}}
+{{--                                        </h2>--}}
+{{--                                        <div id="collapseTwo" class="accordion-collapse collapse"--}}
+{{--                                            aria-labelledby="headingTwo" data-bs-parent="#accordionExample">--}}
+{{--                                            <div class="accordion-body net-banking">--}}
+{{--                                                <div class="row">--}}
+{{--                                                    <!-- Net Banking Option Start -->--}}
+{{--                                                    <div class="input-box radio-box col-6">--}}
+{{--                                                        <input class="radio-input" type="radio" name="payment_method" id="rd1" value="bkash" >--}}
+{{--                                                        <label class="radio-label" for="rd1">Bkash</label>--}}
+{{--                                                        <input type="text" name="transaction_id" placeholder="Transaction_Id" class="form-control">--}}
+{{--                                                    </div>--}}
+{{--                                                    <!-- Net Banking Option End -->--}}
 
-                                                    <!-- Net Banking Option Start -->
-                                                    <div class="input-box radio-box col-6">
-                                                        <input class="radio-input" type="radio" name="payment_method"
-                                                            id="rd2" value="nagod">
-                                                        <label class="radio-label" for="rd2">Nagod</label>
-                                                        <input type="text" name="transaction_id" placeholder="Transaction_Id" class="form-control">
+{{--                                                    <!-- Net Banking Option Start -->--}}
+{{--                                                    <div class="input-box radio-box col-6">--}}
+{{--                                                        <input class="radio-input" type="radio" name="payment_method"--}}
+{{--                                                            id="rd2" value="nagod">--}}
+{{--                                                        <label class="radio-label" for="rd2">Nagod</label>--}}
+{{--                                                        <input type="text" name="transaction_id" placeholder="Transaction_Id" class="form-control">--}}
 
-                                                    </div>
-                                                    <!-- Net Banking Option End -->
+{{--                                                    </div>--}}
+{{--                                                    <!-- Net Banking Option End -->--}}
 
-                                                    <!-- Net Banking Option Start -->
-                                                    <div class="input-box radio-box col-6">
-                                                        <input class="radio-input" type="radio" name="payment_method"
-                                                            id="rd3" value="roket" >
-                                                        <label class="radio-label" for="rd3"> Roket</label>
-                                                        <input type="text" name="transaction_id" placeholder="Transaction_Id" class="form-control">
+{{--                                                    <!-- Net Banking Option Start -->--}}
+{{--                                                    <div class="input-box radio-box col-6">--}}
+{{--                                                        <input class="radio-input" type="radio" name="payment_method"--}}
+{{--                                                            id="rd3" value="roket" >--}}
+{{--                                                        <label class="radio-label" for="rd3"> Roket</label>--}}
+{{--                                                        <input type="text" name="transaction_id" placeholder="Transaction_Id" class="form-control">--}}
 
-                                                    </div>
-                                                    <!-- Net Banking Option End -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+{{--                                                    </div>--}}
+{{--                                                    <!-- Net Banking Option End -->--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                     <!-- Accordion End -->
 
                                     <!-- Accordion Start -->

@@ -24,21 +24,15 @@ class CategoryController extends Controller
     }
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'name' => 'required|unique:categories',
         ]);
-        if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator)
-                ->withInput();
-        } else {
             $category = new Category();
             $category->name = $request->name;
             $category->parent_id = $request->parent_id;
             if ($request->logo){
                 $category->logo = $this->saveFile($request);
             }
-        }
             $category->save();
             if ($category->id){
                 Session::flash('success','store successfully');
@@ -67,21 +61,15 @@ class CategoryController extends Controller
     }
 
 
-    public function update(Request $request, $id=null)
+    public function update(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-        ]);
-        if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator)
-                ->withInput();
-        } else {
-            $category = Category::findOrFail($id);
+//        dd($request->all());
+            $category = Category::findOrFail($request->id);
             $category->name = $request->name;
             $category->parent_id = $request->parent_id;
             if ($request->file('logo')){
                 if ($category->logo !=null){
-                    unlink($request->logo);
+                    unlink($category->logo);
                 }
                 $category->logo = $this->saveFile($request);
             }
@@ -96,7 +84,6 @@ class CategoryController extends Controller
             }
 
         }
-    }
     public function delete($id=null)
     {
            $category=Category::findOrFail($id);

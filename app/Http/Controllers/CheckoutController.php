@@ -36,7 +36,7 @@ class CheckoutController extends Controller
     }
     public function order(Request $request)
     {
-        dd($request->all());
+//        dd($request->all());
 
         if($request->cashondevelvery){
             $payment_id=0;
@@ -44,8 +44,8 @@ class CheckoutController extends Controller
 
 
         $payment = new Payment();
-        $payment->payment_method = 'Bkash';
-        $payment->transaction_id = "70QACT4HZ";
+        $payment->payment_method = $request->cash_on_delevery;
+        $payment->transaction_id = "70QACT4HZ/none";
         $payment->amount = Cart::where('user_id', Auth::id())->sum('total_price') + 50.0;
         $payment->save();
         $payment_id=$payment->id;

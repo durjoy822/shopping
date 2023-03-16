@@ -147,15 +147,13 @@
                                                 <ul class="filter-check">
                                                    @php  $brands= \App\Models\Product::all() @endphp
                                                     @foreach($brands as $brand)
-                                                    <li>
-                                                        <label class="checkboxes style-1">
-                                                            <input type="checkbox" checked="">
-                                                            <span class="checkbox__checkmark"></span>
-                                                            <span class="checkbox__body">{{$brand->brand}} <span> 25</span></span>
-                                                        </label>
-                                                    @endforeach
-
-
+                                                        <li>
+                                                            <label class="checkboxes style-1">
+                                                                <input type="checkbox" checked="">
+                                                                <span class="checkbox__checkmark"></span>
+                                                                <span class="checkbox__body">{{$brand->brand}} <span>4</span></span>
+                                                            </label>
+                                                            @endforeach
                                                 </ul>
                                             </div>
                                         </div>
@@ -168,7 +166,8 @@
                                             <h4 class="heading">Categories <span class="bg-theme-blue"></span></h4>
                                         </div>
                                         <ul class="catagories-side">
-                                            @foreach($category as $cat)
+                                            @php  $brandsd= \App\Models\Product::where('category','published')->count() @endphp
+                                        @foreach($category as $cat)
 {{--                                            <li>--}}
 {{--                                                <a href="shop-left-sidebar.html">--}}
 {{--                                                    <span>--}}
@@ -190,7 +189,7 @@
                                                         @endforeach
                                                     </ul>
                                                     </span>
-                                                    <span class="notification">32</span>
+                                                    <span class="notification">{{$brandsd}}</span>
                                                     </a>
                                                 </div>
 

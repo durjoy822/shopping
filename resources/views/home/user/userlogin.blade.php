@@ -20,6 +20,14 @@
     <section class="page-body p-0">
         <div class="row g-0 ratio_asos">
             <div class="order-2 order-lg-1 col-lg-5">
+                @if (Session::has('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>{{ Session::get('success') }}</strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true" class="text-danger">×</span>
+                        </button>
+                    </div>
+                @endif
                 <div class="content-box">
                     <div>
                         <h5>LOGIN <span class="bg-theme-blue"></span></h5>

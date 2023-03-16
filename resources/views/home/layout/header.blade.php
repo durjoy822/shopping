@@ -235,7 +235,7 @@
 
                         <div class="dropdown whislist-dropdown">
                             @if(Auth::check())
-                            @php $wishlist_count = \App\Models\Wishlist::where('User_id',Auth::user()->id)->sum('product_id'); @endphp
+                            @php $wishlist_count = \App\Models\Wishlist::where('User_id',Auth::user()->id)->count(); @endphp
                             <a href="{{route('wishlist')}}"><i data-feather="heart"></i> <span class="notification-label">{{$wishlist_count}}</span></a>
                                 @if($wishlist_count=='')
                             <div class="onhover-show-div">

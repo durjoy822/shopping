@@ -88,7 +88,7 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         return view('admin.product.edit', compact( 'product','category','subcat'));
     }
-    public function update(Request $request, $id = null)
+    public function update(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'old_price' => 'required|integer',
@@ -108,7 +108,7 @@ class ProductController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         } else {
-            $product = Product::findOrFail($id);
+            $product = Product::findOrFail($request->id);
             $product->old_price = $request->old_price;
             $product->price = $request->price;
             $product->status = $request->status;

@@ -15,7 +15,8 @@
                                         <div class="card-header-2">
                                             <h5>Product Information</h5>
                                         </div>
-                                        <form action="{{route('admin.product.store')}}" method="post" class="theme-form theme-form-2 mega-form" enctype="multipart/form-data">@csrf
+                                        <form action="{{route('admin.product.update')}}" method="post" class="theme-form theme-form-2 mega-form" enctype="multipart/form-data">@csrf
+                                            <input type="hidden" name="id" value="{{$product->id}}">
                                             <div class="row">
                                                 <div class="mb-4 row align-items-center">
                                                     <label class="form-label-title col-sm-2 mb-0">Product Name</label>
